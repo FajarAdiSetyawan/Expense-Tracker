@@ -6,9 +6,9 @@ class IntroductionScreenController extends GetxController {
   PageController pageController = PageController();
 
   final slides = <Slide>[
-    Slide("assets/images/onboarding_1.png", "Plan trip to more than 90 countries"),
-    Slide("assets/images/onboarding_2.png", "Hassle-free and quick flight booking"),
-    Slide("assets/images/onboarding_3.png", "Real-time flight status to keep you informed"),
+    Slide("assets/images/onboarding_1.png", "msg_gain_total_control".tr, "msg_become_your_own".tr),
+    Slide("assets/images/onboarding_2.png", "msg_know_where_your".tr, "msg_track_your_transaction".tr),
+    Slide("assets/images/onboarding_3.png", "lbl_planning_ahead".tr, "msg_setup_your_budget".tr),
   ];
 
   @override
@@ -39,6 +39,7 @@ class IntroductionScreenController extends GetxController {
 class Slide {
   final String image;
   final String heading;
+  final String description;
 
-  Slide(this.image, this.heading);
+  Slide(this.image, this.heading, this.description);
 }

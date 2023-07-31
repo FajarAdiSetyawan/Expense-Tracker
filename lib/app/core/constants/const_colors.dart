@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+Color get bgPrimary => Color(0XFFE5E5E5);
+
 // dark
 Color get dark25 => Color(0XFF7A7E80);
 Color get dark50 => Color(0XFF464A4D);
