@@ -39,14 +39,14 @@ class LoginView extends GetView<LoginController> {
           padding: const EdgeInsets.only(top: 60, right: 20, left: 20),
           child: Column(
             children: [
-              CustomTextFiled(
+              CustomTextField(
                 hintText: "lbl_email".tr,
                 textInputType: TextInputType.emailAddress,
               ),
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFiled(
+              CustomTextField(
                 hintText: "lbl_password".tr,
                 isPassword: true,
               ),

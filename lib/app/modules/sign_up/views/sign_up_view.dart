@@ -41,20 +41,20 @@ class SignUpView extends GetView<SignUpController> {
           padding: const EdgeInsets.only(top: 60, right: 20, left: 20),
           child: Column(
             children: [
-              CustomTextFiled(
+              CustomTextField(
                 hintText: "lbl_name".tr,
               ),
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFiled(
+              CustomTextField(
                 hintText: "lbl_email".tr,
                 textInputType: TextInputType.emailAddress,
               ),
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFiled(
+              CustomTextField(
                 hintText: "lbl_password".tr,
                 isPassword: true,
               ),
@@ -114,7 +114,7 @@ class SignUpView extends GetView<SignUpController> {
                 colorText: light100,
                 colorRipple: Colors.black38,
                 width: 400,
-                onPressed: () => Get.toNamed(Routes.SIGN_UP),
+                onPressed: () => Get.toNamed(Routes.SIGN_UP_VERIFICATION),
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
@@ -156,13 +156,7 @@ class SignUpView extends GetView<SignUpController> {
                     ),
                     TextSpan(
                       text: 'msg_login'.tr,
-                      style: TextStyle(
-                        color: violet100,
-                        fontFamily: 'Inter',
-                        fontSize: 15,
-                        decoration: TextDecoration.underline
-
-                      ),
+                      style: TextStyle(color: violet100, fontFamily: 'Inter', fontSize: 15, decoration: TextDecoration.underline),
                       recognizer: TapGestureRecognizer()..onTap = () => Get.toNamed(Routes.LOGIN),
                     ),
                   ],

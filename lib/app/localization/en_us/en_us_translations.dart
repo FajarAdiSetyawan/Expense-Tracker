@@ -66,7 +66,7 @@ final Map<String, String> enUs = {
   "msg_track_your_transaction": "Track your transaction easily,\nwith categories and financial report ",
   "msg_notification_tootips": "Notification / Tootips",
   "msg_recent_transaction": "Recent Transaction",
-  "msg_enter_your_verification": "Enter your Verification Code",
+  "msg_enter_your_verification": "Enter your\nVerification Code",
   "msg_gain_total_control": "Gain total control \nof your money",
   "lbl_let_s_go": "Let’s go",
   "lbl_120": "- \$120",

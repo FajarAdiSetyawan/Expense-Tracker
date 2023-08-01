@@ -2,8 +2,8 @@ import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomTextFiled extends StatelessWidget {
-  const CustomTextFiled({
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({
     Key? key,
     required this.hintText,
     this.controller,
@@ -82,6 +82,6 @@ class CustomTextFiled extends StatelessWidget {
   }
 }
 
-class _CustomTextFiledState extends GetxController {
+class _CustomTextFieldState extends GetxController {
   RxBool obscureText = true.obs;
 }
