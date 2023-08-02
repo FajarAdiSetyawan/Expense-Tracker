@@ -36,7 +36,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SETUP_PIN;
+  static const INITIAL = Routes.ADD_WALLET;
 
   static final routes = [
     GetPage(

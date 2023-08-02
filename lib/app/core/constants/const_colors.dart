@@ -10,6 +10,7 @@ Color get dark100 => Color(0XFF0D0E0F);
 
 // light
 Color get light20 => Color(0XFFE3E5E5);
+Color get light10 => Color(0XFFF1F1FA);
 Color get light40 => Color(0XFFF2F4F5);
 Color get light60 => Color(0XFFF7F9FA);
 Color get light80 => Color(0XFFFBFBFB);

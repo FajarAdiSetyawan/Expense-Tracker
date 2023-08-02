@@ -10,10 +10,10 @@ class AddAccountView extends GetView<AddAccountController> {
   AddAccountView({Key? key}) : super(key: key);
 
   List<String> options = [
-    'Pilihan 1',
-    'Pilihan 2',
-    'Pilihan 3',
-    'Pilihan 4',
+    'Options 1',
+    'Options 2',
+    'Options 3',
+    'Options 4',
   ];
 
   @override
@@ -41,7 +41,7 @@ class AddAccountView extends GetView<AddAccountController> {
         surfaceTintColor: violet100,
         backgroundColor: violet100,
       ),
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
