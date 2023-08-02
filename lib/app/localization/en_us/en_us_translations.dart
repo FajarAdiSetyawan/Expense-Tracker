@@ -104,7 +104,7 @@ final Map<String, String> enUs = {
   "lbl_dark": "Dark",
   "lbl_export_data": "Export Data",
   "lbl_detail_account": "Detail account",
-  "msg_check_your_email": "Check your email test@test.com and follow the instructions to reset your password",
+  "msg_check_your_email": "Check your email test@test.com and\nfollow the instructions to reset your\npassword",
   "msg_transaction_filtered": "Transaction_Filtered",
   "lbl_29": "29",
   "lbl_citi": "Citi",

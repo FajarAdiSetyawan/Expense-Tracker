@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../data/bank_model.dart';
+import '../../../data/wallet_model.dart';
+
 
 class AddWalletController extends GetxController {
-  //TODO: Implement AddWalletController
 
-  Rx<Color> _borderColor = Colors.transparent.obs;
+  final Rx<Color> _borderColor = Colors.transparent.obs;
 
   Color get borderColor => _borderColor.value;
 
@@ -95,18 +97,3 @@ class AddWalletController extends GetxController {
   }
 }
 
-class Bank {
-  final int id;
-  final String name;
-  final String img;
-
-  Bank({required this.id, required this.name, required this.img});
-}
-
-class Wallet {
-  final int id;
-  final String name;
-  final String img;
-
-  Wallet({required this.id, required this.name, required this.img});
-}
