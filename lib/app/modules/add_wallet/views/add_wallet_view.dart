@@ -148,14 +148,22 @@ class AddWalletView extends GetView<AddWalletController> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Text('lbl_bank'.tr),
+                          Text(
+                            'lbl_bank'.tr,
+                            style: TextStyle(
+                              color: dark100,
+                              fontFamily: "Inter",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
                           const SizedBox(
                             height: 20,
                           ),
                           Obx(
                             () => SizedBox(
                               // berubah gambar jika memilih wallet / bank dari DropdownButtonFormField
-                              height: 180,
+                              height: 220,
                               child: GridView.builder(
                                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 4, // Reduce the number of items per row

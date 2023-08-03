@@ -17,6 +17,7 @@ Color get light80 => Color(0XFFFBFBFB);
 Color get light100 => Color(0XFFFFFFFF);
 
 // violet
+Color get violet10 => Color(0xFFEDE5FB);
 Color get violet20 => Color(0XFFEEE5FF);
 Color get violet40 => Color(0XFFD3BDFF);
 Color get violet60 => Color(0XFFB18AFF);

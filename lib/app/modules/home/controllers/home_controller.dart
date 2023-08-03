@@ -19,5 +19,21 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  var _bottomNavIndex = 0.obs;
+  int get bottomNavIndex => _bottomNavIndex.value;
+
+  // A method to update the index
+  void updateBottomNavIndex(int index) {
+    _bottomNavIndex.value = index;
+  }
+
+  var isBottomBarVisible = true.obs; // Observable to track bottom bar visibility
+
+  // Method to hide the bottom navigation bar after a delay
+  void hideBottomBarAfterDelay() {
+    isBottomBarVisible(false);
+    Future.delayed(Duration(milliseconds: 2000), () {
+      isBottomBarVisible(true);
+    });
+  }
 }

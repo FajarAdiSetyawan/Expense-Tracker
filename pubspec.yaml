@@ -6,6 +6,7 @@ environment:
   sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
+  animated_bottom_navigation_bar: ^1.2.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -14,6 +15,7 @@ dependencies:
   lottie: ^2.5.0
   pin_plus_keyboard: ^2.0.6
   pinput: ^2.3.0
+  syncfusion_flutter_charts: ^22.2.7
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -21,12 +23,10 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-  uses-material-design: true
   assets:
     - assets/images/
     - assets/icons/
     - assets/lottie/
-
   fonts:
     - family: Inter
       fonts:
@@ -34,3 +34,4 @@ flutter:
         - asset: assets/fonts/Inter-Medium.ttf
         - asset: assets/fonts/Inter-Regular.ttf
         - asset: assets/fonts/Inter-SemiBold.ttf
+  uses-material-design: true

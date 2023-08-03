@@ -36,53 +36,61 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH_SCREEN;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () =>  HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.SPLASH_SCREEN,
       page: () => const SplashScreenView(),
       binding: SplashScreenBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.INTRODUCTION_SCREEN,
       page: () => const IntroductionScreenView(),
       binding: IntroductionScreenBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.SIGN_UP,
       page: () => const SignUpView(),
       binding: SignUpBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.FORGOT_PASSWORD,
       page: () => const ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.FORGOT_PASSWORD_SUCCESS,
       page: () => const ForgotPasswordSuccessView(),
       binding: ForgotPasswordSuccessBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.RESET_PASSWORD,
       page: () => const ResetPasswordView(),
       binding: ResetPasswordBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.SETUP_PIN,
       page: () => const SetupPinView(),
       binding: SetupPinBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.SETUP_RETYPE_PIN,
@@ -93,26 +101,31 @@ class AppPages {
       name: _Paths.SIGN_UP_VERIFICATION,
       page: () => const SignUpVerificationView(),
       binding: SignUpVerificationBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.SETUP_ACCOUNT,
       page: () => const SetupAccountView(),
       binding: SetupAccountBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.ADD_ACCOUNT,
       page: () => AddAccountView(),
       binding: AddAccountBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.ADD_WALLET,
       page: () => const AddWalletView(),
       binding: AddWalletBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.SIGN_UP_SUCCESS,
       page: () => const SignUpSuccessView(),
       binding: SignUpSuccessBinding(),
+      transition: Transition.circularReveal,
     ),
   ];
 }

@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({
-    super.key,
     required this.title,
     required this.colorBg,
     required this.colorText,
@@ -13,14 +12,14 @@ class CustomButton extends StatelessWidget {
     this.width = 300,
   });
 
-  String title = "";
-  Color colorBg;
-  Color colorText;
-  Color colorRipple;
+  final String title;
+  final Color colorBg;
+  final Color colorText;
+  final Color colorRipple;
   final double width;
   final double height;
-
   final VoidCallback? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -64,15 +63,14 @@ class CustomButtonIcon extends StatelessWidget {
     this.width = 300,
   }) : super(key: key);
 
-  String title = "";
-  Color colorBg;
-  Color colorText;
-  Color colorRipple;
+  final String title;
+  final Color colorBg;
+  final Color colorText;
+  final Color colorRipple;
   final double width;
   final double height;
   final Icon? icon;
   final SvgPicture? svgPicture;
-
   final VoidCallback? onPressed;
 
   @override
