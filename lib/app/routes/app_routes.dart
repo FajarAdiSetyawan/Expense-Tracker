@@ -18,6 +18,17 @@ abstract class Routes {
   static const ADD_ACCOUNT = _Paths.ADD_ACCOUNT;
   static const ADD_WALLET = _Paths.ADD_WALLET;
   static const SIGN_UP_SUCCESS = _Paths.SIGN_UP_SUCCESS;
+  static const TRANSACTION = _Paths.TRANSACTION;
+  static const INCOME = _Paths.INCOME;
+  static const EXPENSE = _Paths.EXPENSE;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const DETAIL_TRANSACTION = _Paths.DETAIL_TRANSACTION;
+  static const PROFILE = _Paths.PROFILE;
+  static const ACCOUNT = _Paths.ACCOUNT;
+  static const BUDGET = _Paths.BUDGET;
+  static const DETAIL_BUDGET = _Paths.DETAIL_BUDGET;
+  static const MAIN = _Paths.MAIN;
+  static const TRANSFER = _Paths.TRANSFER;
 }
 
 abstract class _Paths {
@@ -37,4 +48,15 @@ abstract class _Paths {
   static const ADD_ACCOUNT = '/add-account';
   static const ADD_WALLET = '/add-wallet';
   static const SIGN_UP_SUCCESS = '/sign-up-success';
+  static const TRANSACTION = '/transaction';
+  static const INCOME = '/income';
+  static const EXPENSE = '/expense';
+  static const NOTIFICATION = '/notification';
+  static const DETAIL_TRANSACTION = '/detail-transaction';
+  static const PROFILE = '/profile';
+  static const ACCOUNT = '/account';
+  static const BUDGET = '/budget';
+  static const DETAIL_BUDGET = '/detail-budget';
+  static const MAIN = '/main';
+  static const TRANSFER = '/transfer';
 }

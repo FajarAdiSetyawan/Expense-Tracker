@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement HomeController
+class ExpenseController extends GetxController {
+  //TODO: Implement ExpenseController
 
   final count = 0.obs;
   @override
@@ -19,8 +19,5 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
- 
-
-
-
+  void increment() => count.value++;
 }

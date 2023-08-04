@@ -1,4 +1,3 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/modules/home/widgets/item_balance.dart';
 import 'package:flutter/material.dart';
@@ -9,22 +8,8 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  HomeView({Key? key}) : super(key: key);
+  const HomeView({Key? key}) : super(key: key);
 
-  final iconList = <IconData>[
-    Icons.home,
-    Icons.swap_horiz,
-    Icons.pie_chart_rounded,
-    Icons.person,
-  ];
-
-  late AnimationController _fabAnimationController;
-  late AnimationController _borderRadiusAnimationController;
-  late Animation<double> fabAnimation;
-  late Animation<double> borderRadiusAnimation;
-  late CurvedAnimation fabCurve;
-  late CurvedAnimation borderRadiusCurve;
-  late AnimationController _hideBottomBarAnimationController;
 
   @override
   Widget build(BuildContext context) {
@@ -418,51 +403,7 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add,
-          color: violet20,
-          size: 30,
-        ),
-        backgroundColor: violet100,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-            30,
-          ),
-        ),
-        onPressed: () {
-          _fabAnimationController.reset();
-          _borderRadiusAnimationController.reset();
-          _borderRadiusAnimationController.forward();
-          _fabAnimationController.forward();
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: Obx(
-        () => AnimatedOpacity(
-          opacity: controller.isBottomBarVisible.value ? 1.0 : 0.0,
-          duration: Duration(milliseconds: 200),
-          child: AnimatedBottomNavigationBar(
-            height: controller.isBottomBarVisible.value ? 56 : 0, // Change the height to 0 to hide the bottom bar
-            icons: iconList,
-            activeIndex: controller.bottomNavIndex,
-            gapLocation: GapLocation.center,
-            blurEffect: true,
-            activeColor: violet100,
-            notchSmoothness: NotchSmoothness.defaultEdge,
-            onTap: (index) => controller.updateBottomNavIndex(index),
-            splashColor: violet60,
-            splashSpeedInMilliseconds: 300,
-            shadow: BoxShadow(
-              offset: Offset(0, 1),
-              blurRadius: 12,
-              spreadRadius: 0.5,
-              color: violet80,
-            ),
-            //other params
-          ),
-        ),
-      ),
+
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 Color get bgPrimary => Color(0XFFE5E5E5);
 
 // dark
+Color get dark10 => Color(0XFFC6C6C6);
 Color get dark25 => Color(0XFF7A7E80);
 Color get dark50 => Color(0XFF464A4D);
 Color get dark75 => Color(0XFF161719);
