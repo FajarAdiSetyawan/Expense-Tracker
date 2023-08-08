@@ -1,23 +1,19 @@
+import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 
 class IncomeController extends GetxController {
-  //TODO: Implement IncomeController
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  Rx<XFile?> capturedImage = Rx<XFile?>(null);
 
-  @override
-  void onClose() {
-    super.onClose();
+  void deleteCapturedImage() {
+    if (capturedImage.value != null) {
+      // Delete the captured image here
+      capturedImage.value = null;
+    }
   }
-
-  void increment() => count.value++;
 }

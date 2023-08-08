@@ -58,13 +58,14 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.MAIN;
+  static const INITIAL = Routes.SPLASH_SCREEN;
 
   static final routes = [
     GetPage(
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.SPLASH_SCREEN,
@@ -76,133 +77,145 @@ class AppPages {
       name: _Paths.INTRODUCTION_SCREEN,
       page: () => const IntroductionScreenView(),
       binding: IntroductionScreenBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.SIGN_UP,
       page: () => const SignUpView(),
       binding: SignUpBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.FORGOT_PASSWORD,
       page: () => const ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.FORGOT_PASSWORD_SUCCESS,
       page: () => const ForgotPasswordSuccessView(),
       binding: ForgotPasswordSuccessBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.RESET_PASSWORD,
       page: () => const ResetPasswordView(),
       binding: ResetPasswordBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.SETUP_PIN,
       page: () => const SetupPinView(),
       binding: SetupPinBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.SETUP_RETYPE_PIN,
       page: () => const SetupRetypePinView(),
       binding: SetupRetypePinBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.SIGN_UP_VERIFICATION,
       page: () => const SignUpVerificationView(),
       binding: SignUpVerificationBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.SETUP_ACCOUNT,
       page: () => const SetupAccountView(),
       binding: SetupAccountBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.ADD_ACCOUNT,
       page: () => AddAccountView(),
       binding: AddAccountBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.ADD_WALLET,
       page: () => const AddWalletView(),
       binding: AddWalletBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.SIGN_UP_SUCCESS,
       page: () => const SignUpSuccessView(),
       binding: SignUpSuccessBinding(),
-      transition: Transition.circularReveal,
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.TRANSACTION,
       page: () => const TransactionView(),
       binding: TransactionBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.INCOME,
-      page: () => const IncomeView(),
+      page: () =>  const IncomeView(),
       binding: IncomeBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.EXPENSE,
       page: () => const ExpenseView(),
       binding: ExpenseBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.NOTIFICATION,
       page: () => const NotificationView(),
       binding: NotificationBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.DETAIL_TRANSACTION,
       page: () => const DetailTransactionView(),
       binding: DetailTransactionBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.ACCOUNT,
       page: () => const AccountView(),
       binding: AccountBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.BUDGET,
       page: () => const BudgetView(),
       binding: BudgetBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.DETAIL_BUDGET,
       page: () => const DetailBudgetView(),
       binding: DetailBudgetBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.MAIN,
       page: () => MainView(),
       binding: MainBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.TRANSFER,
       page: () => const TransferView(),
       binding: TransferBinding(),
+      transition: Transition.fadeIn,
     ),
   ];
 }

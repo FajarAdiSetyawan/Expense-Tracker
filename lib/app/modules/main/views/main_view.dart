@@ -33,6 +33,7 @@ class MainView extends GetView<MainController> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ExpandableFab(
+        color: violet100,
         icon: const Icon(
           Icons.add_rounded,
           color: Colors.white,

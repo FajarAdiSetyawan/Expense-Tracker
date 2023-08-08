@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ExpenseController extends GetxController {
   //TODO: Implement ExpenseController
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +19,12 @@ class ExpenseController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  Rx<XFile?> capturedImage = Rx<XFile?>(null);
+
+  void deleteCapturedImage() {
+    if (capturedImage.value != null) {
+      // Delete the captured image here
+      capturedImage.value = null;
+    }
+  }
 }

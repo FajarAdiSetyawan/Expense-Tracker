@@ -59,15 +59,7 @@ class AddWalletView extends GetView<AddWalletController> {
             ),
             const Padding(
               padding: EdgeInsets.only(left: 20.0, right: 20),
-              child: Text(
-                "\$ 00.0",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Inter",
-                ),
-              ),
+              child: TextFiledBalance(hintText: '\$ 0.00'),
             ),
             const SizedBox(
               height: 20,
