@@ -270,12 +270,123 @@ class IncomeView extends GetView<IncomeController> {
                           const SizedBox(
                             height: 20,
                           ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'lbl_repeat'.tr,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  Text('msg_repeat_transaction'.tr),
+                                ],
+                              ),
+                              Obx(
+                                () => Switch(
+                                  // This bool value toggles the switch.
+                                  value: controller.repeatSwitch.value,
+                                  splashRadius: 10,
+                                  activeTrackColor: violet80,
+                                  thumbColor: const MaterialStatePropertyAll<Color>(Colors.white),
+                                  onChanged: (bool value) {
+                                    // This is called when the user toggles the switch.
+                                    controller.repeatSwitch.value = value;
+                                    if (controller.repeatSwitch.isTrue) {
+                                      Get.bottomSheet(
+                                        BottomDialogRepeat(controller: controller),
+                                        // buildBottomSheetContent(controller, context),
+                                      );
+                                    }
+                                  },
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Obx(
+                            () => Container(
+                              child: controller.repeatSwitch.isTrue
+                                  ? Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'lbl_frequency'.tr,
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
+                                                Text("${controller.selectedFrequency} ${controller.monthNames[controller.selectedMonth.value - 1]} ${controller.selectedDate.value}")
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'lbl_end_after'.tr,
+                                                  style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
+                                                Text(controller.selectDateFormat()),
+                                              ],
+                                            ),
+                                            GestureDetector(
+                                              onTap: () => Get.bottomSheet(
+                                                isScrollControlled: true,
+                                                BottomDialogRepeat(controller: controller),
+                                              ),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: violet10,
+                                                  borderRadius: BorderRadius.circular(16),
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsets.symmetric(
+                                                    vertical: 5,
+                                                    horizontal: 15,
+                                                  ),
+                                                  child: Text(
+                                                    'lbl_edit'.tr,
+                                                    style: TextStyle(
+                                                      color: violet100,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontFamily: "Inter",
+                                                      fontSize: 14,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                      ],
+                                    )
+                                  : const SizedBox(),
+                            ),
+                          ),
                           CustomButton(
                             title: 'lbl_continue'.tr,
                             colorBg: violet100,
                             colorText: violet20,
                             colorRipple: dark75,
-                            onPressed: () => Get.toNamed(Routes.SETUP_ACCOUNT),
+                            onPressed: () => Get.toNamed(Routes.ACCOUNT),
                             width: 400,
                           ),
                         ],
@@ -292,3 +403,4 @@ class IncomeView extends GetView<IncomeController> {
     );
   }
 }
+

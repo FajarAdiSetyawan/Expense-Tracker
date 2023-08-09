@@ -1,4 +1,5 @@
 final Map<String, String> enUs = {
+  'lbl_app_name': 'Expesnse Tracker',
   'msg_network_err': 'Network Error',
   'msg_something_went_wrong': 'Something Went Wrong!',
   "lbl_continue": "Continue",

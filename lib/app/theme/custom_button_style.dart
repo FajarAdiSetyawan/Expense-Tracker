@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({
@@ -10,6 +11,8 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.height = 50,
     this.width = 300,
+    this.borderRadius = 15,
+    this.fontSize = 16,
   });
 
   final String title;
@@ -18,6 +21,8 @@ class CustomButton extends StatelessWidget {
   final Color colorRipple;
   final double width;
   final double height;
+  final double borderRadius;
+  final double fontSize;
   final VoidCallback? onPressed;
 
   @override
@@ -32,13 +37,13 @@ class CustomButton extends StatelessWidget {
           backgroundColor: colorBg,
           animationDuration: const Duration(milliseconds: 1000),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
         ),
         child: Text(
           title,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: fontSize,
             fontWeight: FontWeight.bold,
             color: colorText,
             fontFamily: "Inter",

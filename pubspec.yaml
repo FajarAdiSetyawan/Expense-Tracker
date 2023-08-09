@@ -2,17 +2,20 @@ name: expense
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
+environment:
   sdk: '>=3.0.5 <4.0.0'
 
-dependencies: 
+dependencies:
   camera: ^0.10.5+2
   cupertino_icons: ^1.0.2
   dropdown_textfield: ^1.0.8
   expandable_fab_lite: ^0.0.2
+  flutter:
+    sdk: flutter
   flutter_svg: ^2.0.7
   get: 4.6.5
   image_picker: ^1.0.2
+  intl: ^0.18.1
   lottie: ^2.5.0
   mobkit_dashed_border: ^0.0.5
   motion_toast: ^2.7.8
@@ -20,25 +23,22 @@ dependencies:
   pin_plus_keyboard: ^2.0.6
   pinput: ^2.3.0
   syncfusion_flutter_charts: ^22.2.7
-  flutter: 
-    sdk: flutter
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^2.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
 
-flutter: 
-  assets: 
+flutter:
+  assets:
     - assets/images/
     - assets/icons/
     - assets/lottie/
-  fonts: 
+  fonts:
     - family: Inter
-      fonts: 
+      fonts:
         - asset: assets/fonts/Inter-Bold.ttf
         - asset: assets/fonts/Inter-Medium.ttf
         - asset: assets/fonts/Inter-Regular.ttf
         - asset: assets/fonts/Inter-SemiBold.ttf
   uses-material-design: true
-

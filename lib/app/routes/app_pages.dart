@@ -58,7 +58,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH_SCREEN;
+  static const INITIAL = Routes.MAIN;
 
   static final routes = [
     GetPage(
@@ -165,7 +165,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.EXPENSE,
-      page: () => const ExpenseView(),
+      page: () =>  ExpenseView(),
       binding: ExpenseBinding(),
       transition: Transition.fadeIn,
     ),

@@ -16,8 +16,8 @@ void main() {
       ),
       translations: AppLocalization(),
       locale: Get.deviceLocale, //for setting localization strings
-      fallbackLocale: Locale('en', 'US'),
-      title: "Expesnse Tracker",
+      fallbackLocale: const Locale('en', 'US'),
+      title: "lbl_app_name".tr,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
