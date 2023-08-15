@@ -1,10 +1,10 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/modules/Expense/widgets/expense_widgets.dart';
-import 'package:expense/app/routes/app_pages.dart';
 import 'package:expense/app/theme/custom_bottom_dialog.dart';
 import 'package:expense/app/theme/custom_button_style.dart';
 import 'package:expense/app/theme/custom_text_filed.dart';
+import 'package:expense/app/theme/dashed_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -12,7 +12,7 @@ import 'package:permission_handler/permission_handler.dart';
 import '../controllers/expense_controller.dart';
 
 class ExpenseView extends GetView<ExpenseController> {
-  ExpenseView({Key? key}) : super(key: key);
+  const ExpenseView({Key? key}) : super(key: key);
 
   Future<bool> checkCameraPermission() async {
     PermissionStatus cameraPermissionStatus = await Permission.camera.request();
@@ -388,9 +388,10 @@ class ExpenseView extends GetView<ExpenseController> {
                             colorBg: violet100,
                             colorText: violet20,
                             colorRipple: dark75,
-                            onPressed: () => Get.toNamed(Routes.ACCOUNT),
+                            onPressed: () => showDialogSuccess(),
                             width: 400,
                           ),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),

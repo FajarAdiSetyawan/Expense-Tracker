@@ -6,8 +6,6 @@ import '../modules/Income/bindings/income_binding.dart';
 import '../modules/Income/views/income_view.dart';
 import '../modules/Notification/bindings/notification_binding.dart';
 import '../modules/Notification/views/notification_view.dart';
-import '../modules/Transaction/bindings/transaction_binding.dart';
-import '../modules/Transaction/views/transaction_view.dart';
 import '../modules/account/bindings/account_binding.dart';
 import '../modules/account/views/account_view.dart';
 import '../modules/add_account/bindings/add_account_binding.dart';
@@ -20,6 +18,8 @@ import '../modules/detail_budget/bindings/detail_budget_binding.dart';
 import '../modules/detail_budget/views/detail_budget_view.dart';
 import '../modules/detail_transaction/bindings/detail_transaction_binding.dart';
 import '../modules/detail_transaction/views/detail_transaction_view.dart';
+import '../modules/financial_report/bindings/financial_report_binding.dart';
+import '../modules/financial_report/views/financial_report_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/forgot_password_success/bindings/forgot_password_success_binding.dart';
@@ -50,6 +50,10 @@ import '../modules/sign_up_verification/bindings/sign_up_verification_binding.da
 import '../modules/sign_up_verification/views/sign_up_verification_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
 import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/story_financial_report/bindings/story_financial_report_binding.dart';
+import '../modules/story_financial_report/views/story_financial_report_view.dart';
+import '../modules/transaction/bindings/transaction_binding.dart';
+import '../modules/transaction/views/transaction_view.dart';
 import '../modules/transfer/bindings/transfer_binding.dart';
 import '../modules/transfer/views/transfer_view.dart';
 
@@ -58,7 +62,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.MAIN;
+  static const INITIAL = Routes.FINANCIAL_REPORT;
 
   static final routes = [
     GetPage(
@@ -152,20 +156,14 @@ class AppPages {
       transition: Transition.fadeIn,
     ),
     GetPage(
-      name: _Paths.TRANSACTION,
-      page: () => const TransactionView(),
-      binding: TransactionBinding(),
-      transition: Transition.fadeIn,
-    ),
-    GetPage(
       name: _Paths.INCOME,
-      page: () =>  const IncomeView(),
+      page: () => const IncomeView(),
       binding: IncomeBinding(),
       transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.EXPENSE,
-      page: () =>  ExpenseView(),
+      page: () => const ExpenseView(),
       binding: ExpenseBinding(),
       transition: Transition.fadeIn,
     ),
@@ -216,6 +214,21 @@ class AppPages {
       page: () => const TransferView(),
       binding: TransferBinding(),
       transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: _Paths.TRANSACTION,
+      page: () => const TransactionView(),
+      binding: TransactionBinding(),
+    ),
+    GetPage(
+      name: _Paths.FINANCIAL_REPORT,
+      page: () => const FinancialReportView(),
+      binding: FinancialReportBinding(),
+    ),
+    GetPage(
+      name: _Paths.STORY_FINANCIAL_REPORT,
+      page: () => const StoryFinancialReportView(),
+      binding: StoryFinancialReportBinding(),
     ),
   ];
 }

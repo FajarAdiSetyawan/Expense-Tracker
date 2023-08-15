@@ -18,7 +18,6 @@ abstract class Routes {
   static const ADD_ACCOUNT = _Paths.ADD_ACCOUNT;
   static const ADD_WALLET = _Paths.ADD_WALLET;
   static const SIGN_UP_SUCCESS = _Paths.SIGN_UP_SUCCESS;
-  static const TRANSACTION = _Paths.TRANSACTION;
   static const INCOME = _Paths.INCOME;
   static const EXPENSE = _Paths.EXPENSE;
   static const NOTIFICATION = _Paths.NOTIFICATION;
@@ -29,6 +28,9 @@ abstract class Routes {
   static const DETAIL_BUDGET = _Paths.DETAIL_BUDGET;
   static const MAIN = _Paths.MAIN;
   static const TRANSFER = _Paths.TRANSFER;
+  static const TRANSACTION = _Paths.TRANSACTION;
+  static const FINANCIAL_REPORT = _Paths.FINANCIAL_REPORT;
+  static const STORY_FINANCIAL_REPORT = _Paths.STORY_FINANCIAL_REPORT;
 }
 
 abstract class _Paths {
@@ -48,7 +50,6 @@ abstract class _Paths {
   static const ADD_ACCOUNT = '/add-account';
   static const ADD_WALLET = '/add-wallet';
   static const SIGN_UP_SUCCESS = '/sign-up-success';
-  static const TRANSACTION = '/transaction';
   static const INCOME = '/income';
   static const EXPENSE = '/expense';
   static const NOTIFICATION = '/notification';
@@ -59,4 +60,7 @@ abstract class _Paths {
   static const DETAIL_BUDGET = '/detail-budget';
   static const MAIN = '/main';
   static const TRANSFER = '/transfer';
+  static const TRANSACTION = '/transaction';
+  static const FINANCIAL_REPORT = '/financial-report';
+  static const STORY_FINANCIAL_REPORT = '/story-financial-report';
 }

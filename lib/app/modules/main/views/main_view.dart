@@ -17,19 +17,24 @@ import '../controllers/main_controller.dart';
 class MainView extends GetView<MainController> {
   MainView({Key? key}) : super(key: key);
 
-  final List<Widget> _pages = [
-    const HomeView(),
-    const TransactionView(),
-    const HomeView(),
-    const BudgetView(),
-    const ProfileView(),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(
-        () => _pages[controller.bottomNavIndex],
+        () {
+          return IndexedStack(
+            index: controller.bottomNavIndex,
+            children: [
+              HomeView(),
+              TransactionView(),
+              Container(),
+              BudgetView(),
+              ProfileView(),
+            ],
+          );
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ExpandableFab(

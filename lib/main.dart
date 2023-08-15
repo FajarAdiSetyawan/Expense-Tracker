@@ -1,4 +1,5 @@
 import 'package:expense/app/localization/app_localization.dart';
+import 'package:expense/app/modules/transaction/controllers/transaction_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,6 +14,11 @@ void main() {
         visualDensity: VisualDensity.standard,
         fontFamily: 'Inter',
         useMaterial3: true,
+      ),
+      initialBinding: BindingsBuilder(
+        () {
+          Get.put(TransactionController());
+        },
       ),
       translations: AppLocalization(),
       locale: Get.deviceLocale, //for setting localization strings

@@ -8,7 +8,6 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
-import '../controllers/sign_up_verification_controller.dart';
 
 class SignUpVerificationView extends StatefulWidget {
   const SignUpVerificationView({Key? key}) : super(key: key);

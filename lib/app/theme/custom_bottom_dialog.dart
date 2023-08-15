@@ -1,4 +1,5 @@
 import 'package:expense/app/core/constants/const_colors.dart';
+import 'package:expense/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -49,4 +50,38 @@ class ItemBottomSheetDialog extends StatelessWidget {
       ),
     );
   }
+}
+
+
+void showDialogSuccess() {
+  Get.defaultDialog(
+    title: '',
+    titleStyle: const TextStyle(
+      fontSize: 0,
+    ),
+    content: Column(
+      children: [
+        SvgPicture.asset(
+          'assets/icons/ic_success.svg',
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          'msg_transaction_has'.tr,
+          style: const TextStyle(
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ],
+    ),
+  );
+
+  Future.delayed(
+    const Duration(seconds: 2),
+    () {
+      // Pindah ke rute lain
+      Get.offNamed(Routes.MAIN); // Ganti dengan rute yang sesuai
+    },
+  );
 }

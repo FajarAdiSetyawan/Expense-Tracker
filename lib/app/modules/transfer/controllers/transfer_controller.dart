@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class TransferController extends GetxController {
   //TODO: Implement TransferController
@@ -19,5 +20,12 @@ class TransferController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  Rx<XFile?> capturedImage = Rx<XFile?>(null);
+
+  void deleteCapturedImage() {
+    if (capturedImage.value != null) {
+      // Delete the captured image here
+      capturedImage.value = null;
+    }
+  }
 }

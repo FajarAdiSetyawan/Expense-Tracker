@@ -1,4 +1,6 @@
 import 'package:expense/app/core/constants/const_colors.dart';
+import 'package:expense/app/data/chart_model.dart';
+import 'package:expense/app/data/sales_model.dart';
 import 'package:expense/app/modules/home/widgets/item_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -408,14 +410,3 @@ class HomeView extends GetView<HomeController> {
   }
 }
 
-class ChartData {
-  ChartData(this.x, this.y);
-  final double x;
-  final double? y;
-}
-
-class SalesData {
-  SalesData(this.year, this.sales);
-  final DateTime year;
-  final double sales;
-}

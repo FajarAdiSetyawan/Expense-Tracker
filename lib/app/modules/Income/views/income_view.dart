@@ -1,10 +1,10 @@
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/modules/Income/widgets/income_widgets.dart';
-import 'package:expense/app/routes/app_pages.dart';
 import 'package:expense/app/theme/custom_bottom_dialog.dart';
 import 'package:expense/app/theme/custom_button_style.dart';
 import 'package:expense/app/theme/custom_text_filed.dart';
+import 'package:expense/app/theme/dashed_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -81,7 +81,10 @@ class IncomeView extends GetView<IncomeController> {
             ),
             const Padding(
               padding: EdgeInsets.only(left: 20.0, right: 20),
-              child: TextFiledBalance(hintText: '\$ 0.00'),
+              child: TextFiledBalance(
+                hintText: '\$ 0.00',
+                autofocus: false,
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -386,9 +389,10 @@ class IncomeView extends GetView<IncomeController> {
                             colorBg: violet100,
                             colorText: violet20,
                             colorRipple: dark75,
-                            onPressed: () => Get.toNamed(Routes.ACCOUNT),
+                            onPressed: () => showDialogSuccess(),
                             width: 400,
                           ),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
@@ -403,4 +407,3 @@ class IncomeView extends GetView<IncomeController> {
     );
   }
 }
-
