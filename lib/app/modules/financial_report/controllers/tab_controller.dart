@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:expense/app/modules/financial_report/controllers/sub_tab_controller.dart';
 
-class TabController extends GetxController with SingleGetTickerProviderMixin {
-  late TabController tabController;
+class TabControllers extends GetxController with SingleGetTickerProviderMixin {
+  late TabControllers tabController;
   final FinancialReportController financialReportController = Get.put(FinancialReportController()); // Initialize FinancialReportController
 
   late NestedTab1Controller nestedTab1Controller;
