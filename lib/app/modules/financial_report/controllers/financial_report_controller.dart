@@ -1,20 +1,17 @@
 import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/data/chart_model.dart';
 import 'package:expense/app/data/sales_model.dart';
-import 'package:expense/app/modules/financial_report/controllers/sub_tab_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 
-class FinancialReportController extends GetxController with GetSingleTickerProviderStateMixin {
+class FinancialReportController extends GetxController with GetTickerProviderStateMixin {
   //TODO: Implement FinancialReportController
 
   late TabController tabController;
-  late NestedTab1Controller nestedTab1Controller;
-  late NestedTab2Controller nestedTab2Controller;
+
   final List<Tab> myTabs = <Tab>[
-    Tab(icon: SvgPicture.asset('assets/icons/ic_chart.svg')),
+    Tab(icon: SvgPicture.asset('assets/icons/ic_chart_line.svg')),
     Tab(icon: SvgPicture.asset('assets/icons/ic_chart.svg')),
   ];
 
@@ -36,12 +33,11 @@ class FinancialReportController extends GetxController with GetSingleTickerProvi
     ),
   ];
 
+
   @override
   void onInit() {
     super.onInit();
     tabController = TabController(vsync: this, length: 2);
-    // nestedTab1Controller = TabController(vsync: this, length: 2);
-    // nestedTab2Controller = TabController(vsync: this, length: 2);
   }
 
   @override
@@ -52,8 +48,6 @@ class FinancialReportController extends GetxController with GetSingleTickerProvi
   @override
   void onClose() {
     tabController.dispose();
-    nestedTab1Controller.dispose();
-    nestedTab2Controller.dispose();
     super.onClose();
   }
 
@@ -62,6 +56,13 @@ class FinancialReportController extends GetxController with GetSingleTickerProvi
     'Weekly',
     'Monthly',
     'Yearly',
+  ];
+
+  final RxString filterValue = RxString('Transaction');
+  List<String> filterOption = [
+    'Transaction',
+    'Food',
+    'Transport',
   ];
 
   var selectedIndex = 0.obs;
@@ -134,21 +135,17 @@ class FinancialReportController extends GetxController with GetSingleTickerProvi
     CircularData('Steve', 70, green100),
   ];
 
-  // var tabText = ['Inner Tab 1 Text', 'Inner Tab 1 Text'].obs;
-  var currentTabLine = 0.obs; // Gunakan Obx agar perubahan terdeteksi
+  var currentTabLine = 0.obs;
 
   void setCurrentTabLine(int index) {
     currentTabLine.value = index;
   }
 
-  var currentTabCircular = 0.obs; // Gunakan Obx agar perubahan terdeteksi
+  var currentTabCircular = 0.obs;
 
   void setCurrentTabCircular(int index) {
     currentTabCircular.value = index;
   }
 
-  var expenseList = List.generate(20, (index) => 'Expense Item $index').obs;
-  var incomeList = List.generate(20, (index) => 'Income Item $index').obs;
-  var circularExpenseList = List.generate(20, (index) => 'Circular Expense Item $index').obs;
-  var circularIncomeList = List.generate(20, (index) => 'Circular Income Item $index').obs;
+
 }

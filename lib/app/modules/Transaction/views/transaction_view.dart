@@ -1,12 +1,11 @@
 import 'package:expense/app/core/constants/const_colors.dart';
+import 'package:expense/app/data/transaction_model.dart';
 import 'package:expense/app/modules/transaction/controllers/transaction_controller.dart';
 import 'package:expense/app/modules/transaction/widgets/transaction_widgets.dart';
-import 'package:expense/app/theme/custom_button_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:group_button/group_button.dart';
 
 class TransactionView extends GetView<TransactionController> {
   const TransactionView({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class TransactionView extends GetView<TransactionController> {
       final now = DateTime.now();
       final todayFormatted = "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
 
-      return controller.transactions.where((transaction) {
+      return transactions.where((transaction) {
         final transactionDateTime = DateTime.parse(transaction.dateTime);
         final transactionDateFormatted = "${transactionDateTime.year}-${transactionDateTime.month.toString().padLeft(2, '0')}-${transactionDateTime.day.toString().padLeft(2, '0')}";
 
@@ -31,7 +30,7 @@ class TransactionView extends GetView<TransactionController> {
       final yesterday = now.subtract(const Duration(days: 1));
       final yesterdayFormatted = "${yesterday.year}-${yesterday.month.toString().padLeft(2, '0')}-${yesterday.day.toString().padLeft(2, '0')}";
 
-      return controller.transactions.where((transaction) {
+      return transactions.where((transaction) {
         final transactionDateTime = DateTime.parse(transaction.dateTime);
         final transactionDateFormatted = "${transactionDateTime.year}-${transactionDateTime.month.toString().padLeft(2, '0')}-${transactionDateTime.day.toString().padLeft(2, '0')}";
 
@@ -46,7 +45,7 @@ class TransactionView extends GetView<TransactionController> {
       final yesterday = now.subtract(const Duration(days: 1));
       final yesterdayFormatted = "${yesterday.year}-${yesterday.month.toString().padLeft(2, '0')}-${yesterday.day.toString().padLeft(2, '0')}";
 
-      return controller.transactions.where((transaction) {
+      return transactions.where((transaction) {
         final transactionDateTime = DateTime.parse(transaction.dateTime);
         final transactionDateFormatted = "${transactionDateTime.year}-${transactionDateTime.month.toString().padLeft(2, '0')}-${transactionDateTime.day.toString().padLeft(2, '0')}";
 

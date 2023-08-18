@@ -1,4 +1,5 @@
 import 'package:expense/app/core/constants/const_colors.dart';
+import 'package:expense/app/data/transaction_model.dart';
 import 'package:expense/app/modules/transaction/controllers/transaction_controller.dart';
 import 'package:expense/app/routes/app_pages.dart';
 import 'package:expense/app/theme/custom_button_style.dart';
@@ -196,6 +197,8 @@ class ItemFinancialTransaction extends StatelessWidget {
         return 'assets/icons/ic_salary.svg';
       case 'Transportation':
         return 'assets/icons/ic_car.svg';
+      case 'Passive Income':
+        return 'assets/icons/ic_shopping_bag.svg';
       default:
         return '';
     }
@@ -213,6 +216,8 @@ class ItemFinancialTransaction extends StatelessWidget {
         return green20;
       case 'Transportation':
         return violet20;
+      case 'Passive Income':
+        return light20;
       default:
         return violet20;
     }

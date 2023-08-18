@@ -1,14 +1,10 @@
 import 'package:expense/app/modules/financial_report/controllers/financial_report_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:expense/app/modules/financial_report/controllers/sub_tab_controller.dart';
 
 class TabControllers extends GetxController with SingleGetTickerProviderMixin {
   late TabControllers tabController;
-  final FinancialReportController financialReportController = Get.put(FinancialReportController()); // Initialize FinancialReportController
-
-  late NestedTab1Controller nestedTab1Controller;
-  late NestedTab2Controller nestedTab2Controller;
+  final FinancialReportController financialReportController = Get.put(FinancialReportController()); // Initialize 
 
   @override
   void onInit() {
@@ -18,8 +14,6 @@ class TabControllers extends GetxController with SingleGetTickerProviderMixin {
   @override
   void onClose() {
     tabController.dispose();
-    nestedTab1Controller.dispose();
-    nestedTab2Controller.dispose();
     super.onClose();
   }
 
