@@ -1,45 +1,30 @@
 import 'package:expense/app/core/constants/const_colors.dart';
-import 'package:expense/app/data/chart_model.dart';
-import 'package:expense/app/data/sales_model.dart';
+import 'package:expense/app/data/transaction_model.dart';
 import 'package:expense/app/modules/home/widgets/item_balance.dart';
+import 'package:expense/app/theme/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-    final List<ChartData> chartData = [
-      ChartData(2010, 130),
-      ChartData(2011, 380),
-      ChartData(2012, 300),
-      ChartData(2013, 320),
-      ChartData(2014, 250),
-      ChartData(2015, 400),
-    ];
+    Get.put<HomeController>(HomeController());
 
-    final List<SalesData> salesData = [
-      SalesData(DateTime(2010), 130),
-      SalesData(DateTime(2011), 240),
-      SalesData(DateTime(2012), 245),
-      SalesData(DateTime(2013), 100),
-      SalesData(DateTime(2014), 350),
-      SalesData(DateTime(2015), 200),
-      SalesData(DateTime(2016), 250),
-      SalesData(DateTime(2017), 600),
-      SalesData(DateTime(2018), 250),
-      SalesData(DateTime(2019), 100),
-      SalesData(DateTime(2020), 250),
-      SalesData(DateTime(2021), 320),
-      SalesData(DateTime(2022), 210),
-      SalesData(DateTime(2023), 200),
-    ];
+    double totalIncomeAmount = 0;
+    double totalExpenseAmount = 0;
+
+    for (var transaction in controller.incomeTransactions) {
+      totalIncomeAmount += transaction.amount;
+    }
+
+    for (var transaction in controller.expenseTransactions) {
+      totalExpenseAmount += transaction.amount;
+    }
 
     final List<Color> color = <Color>[];
     color.add(violet10);
@@ -155,11 +140,11 @@ class HomeView extends GetView<HomeController> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ItemBalance(isIncome: true, balance: 5000),
-                    ItemBalance(isIncome: false, balance: 2500),
+                    ItemBalance(isIncome: true, balance: totalIncomeAmount),
+                    ItemBalance(isIncome: false, balance: totalExpenseAmount),
                   ],
                 ),
                 const SizedBox(
@@ -184,36 +169,10 @@ class HomeView extends GetView<HomeController> {
                       const SizedBox(
                         height: 15,
                       ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: SizedBox(
-                          width: chartData.length * 100,
-                          height: 200,
-                          child: SfCartesianChart(
-                            primaryXAxis: DateTimeAxis(
-                              isVisible: false,
-                            ),
-                            primaryYAxis: NumericAxis(
-                              isVisible: false,
-                            ),
-                            indicators: [
-                              AtrIndicator(
-                                animationDuration: 1,
-                              ),
-                            ],
-                            series: <CartesianSeries>[
-                              // Renders line chart
-                              SplineAreaSeries<SalesData, DateTime>(
-                                dataSource: salesData,
-                                xValueMapper: (SalesData sales, _) => sales.year,
-                                yValueMapper: (SalesData sales, _) => sales.sales,
-                                gradient: gradientColors,
-                                borderWidth: 5,
-                                borderColor: violet100,
-                              ),
-                            ],
-                          ),
-                        ),
+                      SfCartesianChartCustom(
+                        chartData: controller.expenseChartData,
+                        gradientColors: gradientColors,
+                        width: 50,
                       ),
                       const SizedBox(
                         height: 15,
@@ -314,88 +273,19 @@ class HomeView extends GetView<HomeController> {
                       const SizedBox(
                         height: 10,
                       ),
-                      ListView.separated(
-                        separatorBuilder: (context, index) => const SizedBox(
-                          height: 10,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) => const SizedBox(
+                            height: 10,
+                          ),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(), // kaga bisa discroll
+                          itemCount: transactions.length,
+                          itemBuilder: (context, index) => ItemFinancialTransaction(
+                            transaction: transactions[index],
+                          ),
                         ),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 40,
-                            ),
-                            title: Row(
-                              children: [
-                                Container(
-                                  width: 70,
-                                  height: 70,
-                                  margin: const EdgeInsets.only(
-                                    right: 20,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: violet20,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/ic_shopping_bag.svg',
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            'lbl_shopping'.tr,
-                                            style: TextStyle(
-                                              color: dark75,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Text(
-                                            '-\$120',
-                                            style: TextStyle(
-                                              color: red100,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            'Buy some grocery',
-                                            style: TextStyle(
-                                              color: dark50,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                          Text(
-                                            '10:00 AM',
-                                            style: TextStyle(
-                                              color: dark50,
-                                              fontSize: 14,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          );
-                        },
                       ),
                     ],
                   ),
@@ -405,8 +295,6 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-
     );
   }
 }
-

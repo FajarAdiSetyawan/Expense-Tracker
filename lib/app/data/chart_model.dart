@@ -1,14 +1,19 @@
-import 'package:flutter/material.dart';
+import 'package:expense/app/data/transaction_model.dart';
 
 class ChartData {
   ChartData(this.x, this.y);
-  final double x;
+  final int x;
   final double? y;
 }
 
-class CircularData {
-  CircularData(this.x, this.y, [this.color = Colors.blue]);
-  final String x;
-  final double y;
-  final Color color;
+List<ChartData> chartDataList(List<Transaction> transactions, TransactionStatus status) {
+  List<ChartData> chartDataList = [];
+
+  for (var transaction in transactions) {
+    if (transaction.transactionStatus == status) {
+      chartDataList.add(ChartData(transaction.id, transaction.amount));
+    }
+  }
+
+  return chartDataList;
 }

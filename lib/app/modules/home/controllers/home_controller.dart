@@ -1,3 +1,5 @@
+import 'package:expense/app/data/chart_model.dart';
+import 'package:expense/app/data/transaction_model.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -19,8 +21,11 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
- 
+  List<Transaction> incomeTransactions = transactions.where((transaction) => transaction.transactionStatus == TransactionStatus.income).toList();
+  List<Transaction> expenseTransactions = transactions.where((transaction) => transaction.transactionStatus == TransactionStatus.expense).toList();
 
+  List<Transaction> allTransactions = transactions;
 
-
+  List<ChartData> expenseChartData = chartDataList(transactions, TransactionStatus.expense);
+  List<ChartData> incomeChartData = chartDataList(transactions, TransactionStatus.income);
 }

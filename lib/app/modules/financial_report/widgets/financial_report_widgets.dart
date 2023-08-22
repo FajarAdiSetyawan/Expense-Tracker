@@ -1,8 +1,8 @@
 import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/data/chart_model.dart';
-import 'package:expense/app/data/sales_model.dart';
+import 'package:expense/app/data/circular_data.dart';
 import 'package:expense/app/data/transaction_model.dart';
-import 'package:expense/app/modules/transaction/widgets/transaction_widgets.dart';
+import 'package:expense/app/theme/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -99,6 +99,20 @@ class TabLineTab extends StatelessWidget {
       controller.setCurrentTabLine(currentIndex); // Simpan indeks saat ini di dalam controller
     });
 
+    List<ChartData> expenseChartData = chartDataList(transactions, TransactionStatus.expense);
+    List<ChartData> incomeChartData = chartDataList(transactions, TransactionStatus.income);
+
+    double totalIncomeAmount = 0;
+    double totalExpenseAmount = 0;
+
+    for (var transaction in incomeTransactions) {
+      totalIncomeAmount += transaction.amount;
+    }
+
+    for (var transaction in expenseTransactions) {
+      totalExpenseAmount += transaction.amount;
+    }
+
     return DefaultTabController(
       length: 2,
       child: Column(
@@ -109,13 +123,13 @@ class TabLineTab extends StatelessWidget {
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(
+                        Padding(
+                          padding: const EdgeInsets.only(
                             left: 20,
                           ),
                           child: Text(
-                            "\$ 2121",
-                            style: TextStyle(
+                            "\$ $totalExpenseAmount",
+                            style: const TextStyle(
                               fontSize: 26,
                               fontWeight: FontWeight.w800,
                             ),
@@ -124,50 +138,23 @@ class TabLineTab extends StatelessWidget {
                         const SizedBox(
                           height: 15,
                         ),
-                        SingleChildScrollView(
-                          padding: EdgeInsets.zero,
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: controller.chartData.length * 80,
-                            height: 200,
-                            child: SfCartesianChart(
-                              primaryXAxis: DateTimeAxis(
-                                isVisible: false,
-                              ),
-                              primaryYAxis: NumericAxis(
-                                isVisible: false,
-                              ),
-                              indicators: [
-                                AtrIndicator(
-                                  animationDuration: 1,
-                                ),
-                              ],
-                              series: <CartesianSeries>[
-                                // Renders line chart
-                                SplineAreaSeries<SalesData, DateTime>(
-                                  dataSource: controller.salesData,
-                                  xValueMapper: (SalesData sales, _) => sales.year,
-                                  yValueMapper: (SalesData sales, _) => sales.sales,
-                                  gradient: gradientColors,
-                                  borderWidth: 5,
-                                  borderColor: violet100,
-                                ),
-                              ],
-                            ),
-                          ),
+                        SfCartesianChartCustom(
+                          chartData: expenseChartData,
+                          gradientColors: gradientColors,
+                          width: 50,
                         ),
                       ],
                     )
                   : Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(
+                        Padding(
+                          padding: const EdgeInsets.only(
                             left: 20,
                           ),
                           child: Text(
-                            "\$ 7878",
-                            style: TextStyle(
+                            "\$ $totalIncomeAmount",
+                            style: const TextStyle(
                               fontSize: 26,
                               fontWeight: FontWeight.w800,
                             ),
@@ -176,42 +163,16 @@ class TabLineTab extends StatelessWidget {
                         const SizedBox(
                           height: 15,
                         ),
-                        SingleChildScrollView(
-                          padding: EdgeInsets.zero,
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: controller.chartData2.length * 80,
-                            height: 200,
-                            child: SfCartesianChart(
-                              primaryXAxis: DateTimeAxis(
-                                isVisible: false,
-                              ),
-                              primaryYAxis: NumericAxis(
-                                isVisible: false,
-                              ),
-                              indicators: [
-                                AtrIndicator(
-                                  animationDuration: 1,
-                                ),
-                              ],
-                              series: <CartesianSeries>[
-                                // Renders line chart
-                                SplineAreaSeries<SalesData, DateTime>(
-                                  dataSource: controller.salesData2,
-                                  xValueMapper: (SalesData sales, _) => sales.year,
-                                  yValueMapper: (SalesData sales, _) => sales.sales,
-                                  gradient: gradientColors,
-                                  borderWidth: 5,
-                                  borderColor: violet100,
-                                ),
-                              ],
-                            ),
-                          ),
+                        SfCartesianChartCustom(
+                          chartData: incomeChartData,
+                          gradientColors: gradientColors,
+                          width: 150,
                         ),
                       ],
                     );
             },
           ),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Container(
@@ -343,7 +304,6 @@ class TabLineTab extends StatelessWidget {
   }
 }
 
-
 class TabCircularTab extends StatelessWidget {
   final FinancialReportController controller;
   final LinearGradient gradientColors;
@@ -367,9 +327,19 @@ class TabCircularTab extends StatelessWidget {
       controller.setCurrentTabCircular(currentIndex); // Simpan indeks saat ini di dalam controller
     });
 
-    double totalExpenseAmount = expenseTransactions.fold(0, (previousValue, transaction) => previousValue + (-transaction.amount));
+    List<CircularData> incomeCircularDataList = circularTransaction(transactions, TransactionStatus.income);
+    List<CircularData> expenseCircularDataList = circularTransaction(transactions, TransactionStatus.expense);
 
-    double totalIncomeAmount = incomeTransactions.fold(0, (previousValue, transaction) => previousValue + transaction.amount);
+    double totalIncomeAmount = 0;
+    double totalExpenseAmount = 0;
+
+    for (var transaction in incomeTransactions) {
+      totalIncomeAmount += transaction.amount;
+    }
+
+    for (var transaction in expenseTransactions) {
+      totalExpenseAmount += transaction.amount;
+    }
 
     return DefaultTabController(
       length: 2,
@@ -395,13 +365,14 @@ class TabCircularTab extends StatelessWidget {
                       // Renders doughnut chart
                       DoughnutSeries<CircularData, String>(
                         animationDuration: 2000,
-                        dataSource: controller.expenseData,
-                        // pointColorMapper: (CircularData data, _) => data.color,
+                        dataSource: expenseCircularDataList,
                         xValueMapper: (CircularData data, _) => data.x,
                         yValueMapper: (CircularData data, _) => data.y,
                         pointColorMapper: (CircularData data, _) => data.color,
                         innerRadius: "80",
                         explode: true,
+                        sortingOrder: SortingOrder.ascending,
+                        sortFieldValueMapper: (CircularData data, _) => data.x,
                         explodeGesture: ActivationMode.doubleTap,
                       )
                     ],
@@ -425,14 +396,15 @@ class TabCircularTab extends StatelessWidget {
                       DoughnutSeries<CircularData, String>(
                         animationDuration: 2000,
                         animationDelay: 500,
-                        dataSource: controller.incomeData,
+                        dataSource: incomeCircularDataList,
                         // pointColorMapper: (CircularData data, _) => data.color,
                         xValueMapper: (CircularData data, _) => data.x,
                         yValueMapper: (CircularData data, _) => data.y,
                         pointColorMapper: (CircularData data, _) => data.color,
                         innerRadius: "80",
                         explode: true,
-                        sortingOrder: SortingOrder.ascending,
+                        sortingOrder: SortingOrder.descending,
+                        sortFieldValueMapper: (CircularData data, _) => data.x,
                         explodeGesture: ActivationMode.doubleTap,
                       )
                     ],
@@ -607,7 +579,7 @@ class ItemProgressFinancial extends StatelessWidget {
                     const SizedBox(width: 5),
                     Text(
                       transaction.title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -616,11 +588,11 @@ class ItemProgressFinancial extends StatelessWidget {
               ),
             ),
             Text(
-              '${transaction.amount > 0 ? '+' : '-'}\$${transaction.amount.abs()}',
+              '${transaction.transactionStatus == TransactionStatus.income ? '+' : '-'}\$${transaction.amount.abs()}',
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
-                color: transaction.amount > 0 ? green100 : red100,
+                color: transaction.transactionStatus == TransactionStatus.income ? green100 : red100,
               ),
             ),
           ],
@@ -662,7 +634,7 @@ class ItemProgressFinancial extends StatelessWidget {
       case 'Salary':
         return green100;
       case 'Transportation':
-        return violet100;
+        return blue60;
       case 'Passive Income':
         return dark50;
       default:
@@ -681,7 +653,7 @@ class ItemProgressFinancial extends StatelessWidget {
       case 'Salary':
         return green20;
       case 'Transportation':
-        return violet20;
+        return blue20;
       case 'Passive Income':
         return light20;
       default:

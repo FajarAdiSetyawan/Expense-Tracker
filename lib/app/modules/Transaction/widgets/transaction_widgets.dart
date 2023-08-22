@@ -3,11 +3,11 @@ import 'package:expense/app/data/transaction_model.dart';
 import 'package:expense/app/modules/transaction/controllers/transaction_controller.dart';
 import 'package:expense/app/routes/app_pages.dart';
 import 'package:expense/app/theme/custom_button_style.dart';
+import 'package:expense/app/theme/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:group_button/group_button.dart';
-import 'package:intl/intl.dart';
 
 class ItemFinancialReport extends StatelessWidget {
   const ItemFinancialReport({
@@ -93,136 +93,6 @@ Widget buildTransactionList(String label, List<Transaction> transactions) {
   );
 }
 
-class ItemFinancialTransaction extends StatelessWidget {
-  const ItemFinancialTransaction({
-    super.key,
-    required this.transaction,
-  });
-  final Transaction transaction;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            buildTransactionIcon(),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        transaction.title,
-                        style: TextStyle(
-                          color: dark75,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        '${transaction.amount > 0 ? '+' : '-'}\$${transaction.amount.abs()}',
-                        style: TextStyle(
-                          color: transaction.amount > 0 ? green100 : red100,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: Text(
-                            transaction.message,
-                            style: TextStyle(
-                              color: dark50,
-                              fontSize: 14,
-                            ),
-                            maxLines: 1, // Memastikan hanya satu baris
-                            overflow: TextOverflow.ellipsis,
-                            softWrap: false, // Tidak melakukan wrap
-                          ),
-                        ),
-                      ),
-                      Text(
-                        DateFormat.jm().format(DateTime.parse(transaction.dateTime)),
-                        style: TextStyle(
-                          color: dark50,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget buildTransactionIcon() {
-    final String iconPath = getIconPath();
-    return Container(
-      width: 70,
-      height: 70,
-      margin: const EdgeInsets.only(right: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: getTransactionColor(),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: SvgPicture.asset(iconPath),
-      ),
-    );
-  }
-
-  String getIconPath() {
-    switch (transaction.title) {
-      case 'Shopping':
-        return 'assets/icons/ic_shopping_bag.svg';
-      case 'Subscription':
-        return 'assets/icons/ic_recurring_bill.svg';
-      case 'Food':
-        return 'assets/icons/ic_food.svg';
-      case 'Salary':
-        return 'assets/icons/ic_salary.svg';
-      case 'Transportation':
-        return 'assets/icons/ic_car.svg';
-      case 'Passive Income':
-        return 'assets/icons/ic_shopping_bag.svg';
-      default:
-        return '';
-    }
-  }
-
-  Color getTransactionColor() {
-    switch (transaction.title) {
-      case 'Shopping':
-        return yellow20;
-      case 'Subscription':
-        return violet20;
-      case 'Food':
-        return red20;
-      case 'Salary':
-        return green20;
-      case 'Transportation':
-        return violet20;
-      case 'Passive Income':
-        return light20;
-      default:
-        return violet20;
-    }
-  }
-}
 
 class BottomSheetFilterTransaction extends StatelessWidget {
   const BottomSheetFilterTransaction({super.key, required this.controller});

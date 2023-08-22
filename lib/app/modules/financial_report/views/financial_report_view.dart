@@ -11,9 +11,9 @@ class FinancialReportView extends GetView<FinancialReportController> {
   @override
   Widget build(BuildContext context) {
     final List<Color> color = <Color>[];
-    color.add(violet10);
+    color.add(Colors.white);
     color.add(violet40);
-    color.add(violet100);
+    color.add(violet60);
 
     final List<double> stops = <double>[];
     stops.add(0.0);
@@ -27,9 +27,8 @@ class FinancialReportView extends GetView<FinancialReportController> {
       end: Alignment.topCenter,
     );
 
-    final List<Transaction> expenseTransactions = transactions.where((transaction) => transaction.amount < 0).toList(); // Transaksi dengan jumlah negatif
-
-    final List<Transaction> incomeTransactions = transactions.where((transaction) => transaction.amount >= 0).toList();
+    List<Transaction> incomeTransactions = transactions.where((transaction) => transaction.transactionStatus == TransactionStatus.income).toList();
+    List<Transaction> expenseTransactions = transactions.where((transaction) => transaction.transactionStatus == TransactionStatus.expense).toList();
 
     return Scaffold(
       backgroundColor: light100,
