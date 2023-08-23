@@ -1,12 +1,12 @@
 import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/data/chart_model.dart';
 import 'package:expense/app/data/transaction_model.dart';
+import 'package:expense/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
-
+import 'package:get/get.dart';
 
 class ItemFinancialTransaction extends StatelessWidget {
   const ItemFinancialTransaction({
@@ -17,69 +17,74 @@ class ItemFinancialTransaction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            buildTransactionIcon(),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        transaction.title,
-                        style: TextStyle(
-                          color: dark75,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        '${transaction.transactionStatus == TransactionStatus.income ? '+' : '-'}\$${transaction.amount.abs()}',
-                        style: TextStyle(
-                          color: transaction.transactionStatus == TransactionStatus.income ? green100 : red100,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: Text(
-                            transaction.message,
-                            style: TextStyle(
-                              color: dark50,
-                              fontSize: 14,
-                            ),
-                            maxLines: 1, // Memastikan hanya satu baris
-                            overflow: TextOverflow.ellipsis,
-                            softWrap: false, // Tidak melakukan wrap
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(Routes.DETAIL_TRANSACTION, arguments: transaction);
+      },
+      child: Column(
+        children: [
+          Row(
+            children: [
+              buildTransactionIcon(),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          transaction.title,
+                          style: TextStyle(
+                            color: dark75,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                      ),
-                      Text(
-                        DateFormat.jm().format(DateTime.parse(transaction.dateTime)),
-                        style: TextStyle(
-                          color: dark50,
-                          fontSize: 14,
+                        Text(
+                          '${transaction.transactionStatus == TransactionStatus.income ? '+' : '-'}\$${transaction.amount.abs()}',
+                          style: TextStyle(
+                            color: transaction.transactionStatus == TransactionStatus.income ? green100 : red100,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Text(
+                              transaction.message,
+                              style: TextStyle(
+                                color: dark50,
+                                fontSize: 14,
+                              ),
+                              maxLines: 1, // Memastikan hanya satu baris
+                              overflow: TextOverflow.ellipsis,
+                              softWrap: false, // Tidak melakukan wrap
+                            ),
+                          ),
+                        ),
+                        Text(
+                          DateFormat.jm().format(DateTime.parse(transaction.dateTime)),
+                          style: TextStyle(
+                            color: dark50,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
-        )
-      ],
+            ],
+          )
+        ],
+      ),
     );
   }
 
@@ -138,7 +143,6 @@ class ItemFinancialTransaction extends StatelessWidget {
     }
   }
 }
-
 
 class SfCartesianChartCustom extends StatelessWidget {
   const SfCartesianChartCustom({

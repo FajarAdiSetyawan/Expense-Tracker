@@ -307,7 +307,7 @@ final Map<String, String> enUs = {
   "lbl_6": "6",
   "lbl_7": "7",
   "lbl_8": "8",
-  "msg_are_you_sure_do": "Are you sure do you wanna remove this transaction?",
+  "msg_are_you_sure_do": "Are you sure do you wanna remove this\ntransaction?",
   "lbl_9": "9",
   "lbl_16_20": "16:20",
   "lbl_login": "Login",

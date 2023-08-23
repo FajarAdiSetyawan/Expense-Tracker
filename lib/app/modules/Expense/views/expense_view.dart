@@ -388,7 +388,7 @@ class ExpenseView extends GetView<ExpenseController> {
                             colorBg: violet100,
                             colorText: violet20,
                             colorRipple: dark75,
-                            onPressed: () => showDialogSuccess(),
+                            onPressed: () => showDialogSuccess('msg_transaction_has'.tr),
                             width: 400,
                           ),
                           const SizedBox(height: 20),

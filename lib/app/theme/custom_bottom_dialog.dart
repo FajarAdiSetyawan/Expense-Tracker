@@ -16,13 +16,14 @@ class ItemBottomSheetDialog extends StatelessWidget {
   final String title;
   final String svgAsset;
 
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
       child: Padding(
-        padding: const EdgeInsets.only(right: 3,),
+        padding: const EdgeInsets.only(
+          right: 3,
+        ),
         child: Container(
           decoration: BoxDecoration(
             color: violet20,
@@ -52,8 +53,7 @@ class ItemBottomSheetDialog extends StatelessWidget {
   }
 }
 
-
-void showDialogSuccess() {
+void showDialogSuccess(String message) {
   Get.defaultDialog(
     title: '',
     titleStyle: const TextStyle(
@@ -68,7 +68,8 @@ void showDialogSuccess() {
           height: 10,
         ),
         Text(
-          'msg_transaction_has'.tr,
+          message,
+          textAlign: TextAlign.center,
           style: const TextStyle(
             fontWeight: FontWeight.w400,
           ),

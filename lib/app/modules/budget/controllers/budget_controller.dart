@@ -19,5 +19,20 @@ class BudgetController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  var selectedMonth = DateTime.now().month.obs;
+
+  final List<String> months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  void previousMonth() {
+    selectedMonth.value = (selectedMonth.value - 1) % 12;
+    if (selectedMonth.value == 0) {
+      selectedMonth.value = 12;
+    }
+    print('previousMonth');
+  }
+
+  void nextMonth() {
+    selectedMonth.value = (selectedMonth.value % 12) + 1;
+     print('nextMonth');
+  }
 }

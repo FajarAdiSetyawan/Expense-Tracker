@@ -14,6 +14,8 @@ import '../modules/add_wallet/bindings/add_wallet_binding.dart';
 import '../modules/add_wallet/views/add_wallet_view.dart';
 import '../modules/budget/bindings/budget_binding.dart';
 import '../modules/budget/views/budget_view.dart';
+import '../modules/create_budget/bindings/create_budget_binding.dart';
+import '../modules/create_budget/views/create_budget_view.dart';
 import '../modules/detail_budget/bindings/detail_budget_binding.dart';
 import '../modules/detail_budget/views/detail_budget_view.dart';
 import '../modules/detail_transaction/bindings/detail_transaction_binding.dart';
@@ -229,6 +231,11 @@ class AppPages {
       name: _Paths.STORY_FINANCIAL_REPORT,
       page: () => const StoryFinancialReportView(),
       binding: StoryFinancialReportBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_BUDGET,
+      page: () => const CreateBudgetView(),
+      binding: CreateBudgetBinding(),
     ),
   ];
 }

@@ -1,7 +1,6 @@
-enum TransactionStatus {
-  expense,
-  income,
-}
+enum TransactionStatus { expense, income, transfer }
+
+enum WalletStatus { chase, wallet }
 
 class Transaction {
   final int id;
@@ -9,7 +8,10 @@ class Transaction {
   final String message;
   final double amount;
   final String dateTime;
+  final String description;
+  final String imgSrc;
   final TransactionStatus transactionStatus;
+  final WalletStatus walletStatus;
 
   Transaction({
     required this.id,
@@ -17,7 +19,10 @@ class Transaction {
     required this.message,
     required this.amount,
     required this.dateTime,
+    required this.description,
+    required this.imgSrc,
     required this.transactionStatus,
+    required this.walletStatus,
   });
 }
 
@@ -29,6 +34,9 @@ final List<Transaction> transactions = [
     amount: 30,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-07-01 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.wallet,
   ),
   Transaction(
     id: 2,
@@ -37,6 +45,9 @@ final List<Transaction> transactions = [
     amount: 120,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-07-11 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.wallet,
   ),
   Transaction(
     id: 3,
@@ -45,6 +56,9 @@ final List<Transaction> transactions = [
     amount: 80,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-07-19 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.wallet,
   ),
   Transaction(
     id: 4,
@@ -53,6 +67,9 @@ final List<Transaction> transactions = [
     amount: 20,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-07-21 12:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.wallet,
   ),
   Transaction(
     id: 5,
@@ -61,6 +78,9 @@ final List<Transaction> transactions = [
     amount: 32,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-08-01 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.chase,
   ),
   Transaction(
     id: 6,
@@ -69,6 +89,9 @@ final List<Transaction> transactions = [
     amount: 5000,
     transactionStatus: TransactionStatus.income,
     dateTime: "2023-08-05 00:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.chase,
   ),
   Transaction(
     id: 7,
@@ -77,6 +100,9 @@ final List<Transaction> transactions = [
     amount: 18,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-08-10 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.wallet,
   ),
   Transaction(
     id: 8,
@@ -85,6 +111,9 @@ final List<Transaction> transactions = [
     amount: 25,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-08-12 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.wallet,
   ),
   Transaction(
     id: 9,
@@ -93,6 +122,9 @@ final List<Transaction> transactions = [
     amount: 39,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-08-18 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.chase,
   ),
   Transaction(
     id: 10,
@@ -101,6 +133,9 @@ final List<Transaction> transactions = [
     amount: 5000,
     transactionStatus: TransactionStatus.income,
     dateTime: "2023-09-01 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.chase,
   ),
   Transaction(
     id: 11,
@@ -109,6 +144,9 @@ final List<Transaction> transactions = [
     amount: 100,
     transactionStatus: TransactionStatus.expense,
     dateTime: "2023-09-09 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.wallet,
   ),
   Transaction(
     id: 12,
@@ -117,5 +155,8 @@ final List<Transaction> transactions = [
     amount: 1000,
     transactionStatus: TransactionStatus.income,
     dateTime: "2023-09-30 14:30:00",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Integer feugiat scelerisque varius morbi enim nunc. Ipsum suspendisse ultrices gravida dictum fusce ut. Velit scelerisque in dictum non consectetur a.',
+    imgSrc: 'https://picsum.photos/500',
+    walletStatus: WalletStatus.chase,
   ),
 ];
