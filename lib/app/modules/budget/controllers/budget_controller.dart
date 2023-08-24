@@ -1,3 +1,4 @@
+import 'package:expense/app/data/budget_model.dart';
 import 'package:get/get.dart';
 
 class BudgetController extends GetxController {
@@ -7,6 +8,7 @@ class BudgetController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    filterBudgetList();
   }
 
   @override
@@ -20,6 +22,7 @@ class BudgetController extends GetxController {
   }
 
   var selectedMonth = DateTime.now().month.obs;
+  RxList<BudgetModel> filteredBudgetList = RxList<BudgetModel>([]);
 
   final List<String> months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -28,11 +31,19 @@ class BudgetController extends GetxController {
     if (selectedMonth.value == 0) {
       selectedMonth.value = 12;
     }
-    print('previousMonth');
+    filterBudgetList();
   }
 
   void nextMonth() {
     selectedMonth.value = (selectedMonth.value % 12) + 1;
-     print('nextMonth');
+    filterBudgetList();
+  }
+
+  void filterBudgetList() {
+    final filteredList = budgetList.where((budget) {
+      final budgetDate = DateTime.parse(budget.datetime);
+      return budgetDate.month == selectedMonth.value;
+    }).toList();
+    filteredBudgetList.value = filteredList;
   }
 }

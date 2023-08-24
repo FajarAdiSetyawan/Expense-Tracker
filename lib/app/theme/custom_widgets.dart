@@ -89,58 +89,20 @@ class ItemFinancialTransaction extends StatelessWidget {
   }
 
   Widget buildTransactionIcon() {
-    final String iconPath = getIconPath();
+    final String iconPath = getIconPath(transaction.title);
     return Container(
       width: 70,
       height: 70,
       margin: const EdgeInsets.only(right: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: getTransactionColor(),
+        color: getColorSecondary(transaction.title),
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SvgPicture.asset(iconPath),
       ),
     );
-  }
-
-  String getIconPath() {
-    switch (transaction.title) {
-      case 'Shopping':
-        return 'assets/icons/ic_shopping_bag.svg';
-      case 'Subscription':
-        return 'assets/icons/ic_recurring_bill.svg';
-      case 'Food':
-        return 'assets/icons/ic_food.svg';
-      case 'Salary':
-        return 'assets/icons/ic_salary.svg';
-      case 'Transportation':
-        return 'assets/icons/ic_car.svg';
-      case 'Passive Income':
-        return 'assets/icons/ic_shopping_bag.svg';
-      default:
-        return '';
-    }
-  }
-
-  Color getTransactionColor() {
-    switch (transaction.title) {
-      case 'Shopping':
-        return yellow20;
-      case 'Subscription':
-        return violet20;
-      case 'Food':
-        return red20;
-      case 'Salary':
-        return green20;
-      case 'Transportation':
-        return violet20;
-      case 'Passive Income':
-        return light20;
-      default:
-        return violet20;
-    }
   }
 }
 
@@ -182,5 +144,62 @@ class SfCartesianChartCustom extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+String getIconPath(String title) {
+  switch (title) {
+    case 'Shopping':
+      return 'assets/icons/ic_shopping_bag.svg';
+    case 'Subscription':
+      return 'assets/icons/ic_recurring_bill.svg';
+    case 'Food':
+      return 'assets/icons/ic_food.svg';
+    case 'Salary':
+      return 'assets/icons/ic_salary.svg';
+    case 'Transportation':
+      return 'assets/icons/ic_car.svg';
+    case 'Passive Income':
+      return 'assets/icons/ic_shopping_bag.svg';
+    default:
+      return '';
+  }
+}
+
+Color getColor(String title) {
+  switch (title) {
+    case 'Shopping':
+      return yellow100;
+    case 'Subscription':
+      return violet100;
+    case 'Food':
+      return red100;
+    case 'Salary':
+      return green100;
+    case 'Transportation':
+      return blue100;
+    case 'Passive Income':
+      return light20;
+    default:
+      return violet100;
+  }
+}
+
+Color getColorSecondary(String title) {
+  switch (title) {
+    case 'Shopping':
+      return yellow20;
+    case 'Subscription':
+      return violet20;
+    case 'Food':
+      return red20;
+    case 'Salary':
+      return green20;
+    case 'Transportation':
+      return blue20;
+    case 'Passive Income':
+      return dark10;
+    default:
+      return violet20;
   }
 }

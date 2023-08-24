@@ -1,5 +1,4 @@
 import 'package:expense/app/core/constants/const_colors.dart';
-import 'package:expense/app/data/budget_model.dart';
 import 'package:expense/app/modules/budget/widgets/budget_widget.dart';
 import 'package:expense/app/routes/app_pages.dart';
 import 'package:expense/app/theme/custom_button_style.dart';
@@ -72,16 +71,32 @@ class BudgetView extends GetView<BudgetController> {
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: ListView.separated(
-                          separatorBuilder: (context, index) => const SizedBox(
-                            height: 10,
-                          ),
-                          shrinkWrap: true,
-                          itemCount: budgetList.length,
-                          itemBuilder: (context, index) => ItemBudget(
-                            budgetModel: budgetList[index],
-                          ),
-                        ),
+                        child: Obx(() {
+                          if (controller.filteredBudgetList.isEmpty) {
+                            return Center(
+                              child: Text(
+                                'msg_you_don_t_have_a'.tr,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: dark25,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            );
+                          } else {
+                            return ListView.separated(
+                              separatorBuilder: (context, index) => const SizedBox(
+                                height: 30,
+                              ),
+                              shrinkWrap: true,
+                              itemCount: controller.filteredBudgetList.length,
+                              itemBuilder: (context, index) => ItemBudget(
+                                budgetModel: controller.filteredBudgetList[index],
+                              ),
+                            );
+                          }
+                        }),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -106,5 +121,3 @@ class BudgetView extends GetView<BudgetController> {
     );
   }
 }
-
-

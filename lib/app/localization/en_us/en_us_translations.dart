@@ -7,7 +7,7 @@ final Map<String, String> enUs = {
   "lbl_week": "Week",
   "lbl_5000": "\$5000",
   "msg_are_you_sure_do3": "Are you sure do you wanna logout?",
-  "msg_are_you_sure_do2": "Are you sure do you wanna remove this budget?",
+  "msg_are_you_sure_do2": "Are you sure do you wanna remove this\nbudget?",
   "lbl_logout": "Logout",
   "lbl_expenses": "Expenses",
   "msg_shopping_budget": "Shopping budget has exceeds the..",

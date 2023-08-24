@@ -6,6 +6,7 @@ import 'package:expense/app/theme/custom_button_style.dart';
 import 'package:expense/app/theme/custom_text_filed.dart';
 import 'package:expense/app/theme/dashed_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -47,10 +48,11 @@ class ExpenseView extends GetView<ExpenseController> {
         ),
         centerTitle: true,
         leading: GestureDetector(
-          child: Image.asset(
-            'assets/icons/ic_arrow_left.png',
-            color: Colors.white,
-            scale: 3,
+          child: Transform.scale(
+            scale: 0.7,
+            child: SvgPicture.asset(
+              'assets/icons/ic_arrows_left.svg',
+            ),
           ),
           onTap: () => Get.back(),
         ),

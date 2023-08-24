@@ -1,6 +1,7 @@
 import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/data/transaction_model.dart';
 import 'package:expense/app/modules/home/widgets/item_balance.dart';
+import 'package:expense/app/routes/app_pages.dart';
 import 'package:expense/app/theme/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -69,24 +70,27 @@ class HomeView extends GetView<HomeController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        radius: 25,
-                        backgroundColor: Colors.transparent,
-                        child: Container(
-                          padding: EdgeInsets.all(4.0), // Atur ukuran padding sesuai keinginan.
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: violet100,
-                              width: 2,
+                      GestureDetector(
+                        onTap: () => Get.toNamed(Routes.PROFILE),
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Colors.transparent,
+                          child: Container(
+                            padding: const EdgeInsets.all(4.0),
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: violet100,
+                                width: 2,
+                              ),
                             ),
-                          ),
-                          child: ClipOval(
-                            child: Image.network(
-                              'https://picsum.photos/200',
-                              fit: BoxFit.cover,
+                            child: ClipOval(
+                              child: Image.network(
+                                'https://picsum.photos/200',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -109,7 +113,7 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () => Get.toNamed(Routes.NOTIFICATION),
                         icon: SvgPicture.asset(
                           'assets/icons/ic_notifiaction.svg',
                         ),

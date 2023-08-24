@@ -2,6 +2,7 @@ import 'package:expense/app/core/constants/const_colors.dart';
 import 'package:expense/app/data/transaction_model.dart';
 import 'package:expense/app/modules/financial_report/widgets/financial_report_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../controllers/financial_report_controller.dart';
@@ -43,10 +44,11 @@ class FinancialReportView extends GetView<FinancialReportController> {
         ),
         centerTitle: true,
         leading: GestureDetector(
-          child: Image.asset(
-            'assets/icons/ic_arrow_left.png',
-            color: Colors.black,
-            scale: 3,
+          child: Transform.scale(
+            scale: 0.7,
+            child: SvgPicture.asset(
+              'assets/icons/ic_arrows_left.svg',
+            ),
           ),
           onTap: () => Get.back(),
         ),

@@ -21,7 +21,7 @@ class ForgotPasswordSuccessView extends GetView<ForgotPasswordSuccessController>
             const SizedBox(
               height: 50,
             ),
-            Container(
+            SizedBox(
               width: 300,
               height: 300,
               child: Image.asset(

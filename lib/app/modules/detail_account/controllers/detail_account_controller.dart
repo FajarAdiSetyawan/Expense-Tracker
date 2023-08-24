@@ -1,11 +1,9 @@
 import 'package:get/get.dart';
 
-class CreateBudgetController extends GetxController {
-  //TODO: Implement CreateBudgetController
+class DetailAccountController extends GetxController {
+  //TODO: Implement DetailAccountController
 
-  RxBool isSelected = false.obs;
-  RxDouble sliderValue = 0.0.obs;
-
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -20,4 +18,6 @@ class CreateBudgetController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
+  void increment() => count.value++;
 }

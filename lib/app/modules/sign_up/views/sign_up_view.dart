@@ -27,9 +27,11 @@ class SignUpView extends GetView<SignUpController> {
         ),
         centerTitle: true,
         leading: GestureDetector(
-          child: Image.asset(
-            'assets/icons/ic_arrow_left.png',
-            scale: 3,
+          child: Transform.scale(
+            scale: 0.7,
+            child: SvgPicture.asset(
+              'assets/icons/ic_arrows_left.svg',
+            ),
           ),
           onTap: () => Get.back(),
         ),

@@ -3,6 +3,7 @@ import 'package:expense/app/modules/sign_up_verification/widget/sign_up_verifica
 import 'package:expense/app/routes/app_pages.dart';
 import 'package:expense/app/theme/custom_button_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'dart:async';
 
 import 'package:get/get.dart';
@@ -69,9 +70,11 @@ class _SignUpVerificationViewState extends State<SignUpVerificationView> {
         ),
         centerTitle: true,
         leading: GestureDetector(
-          child: Image.asset(
-            'assets/icons/ic_arrow_left.png',
-            scale: 3,
+          child: Transform.scale(
+            scale: 0.7,
+            child: SvgPicture.asset(
+              'assets/icons/ic_arrows_left.svg',
+            ),
           ),
           onTap: () => Get.back(),
         ),

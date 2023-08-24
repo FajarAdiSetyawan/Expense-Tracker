@@ -33,10 +33,11 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
         ),
         centerTitle: true,
         leading: GestureDetector(
-          child: Image.asset(
-            'assets/icons/ic_arrow_left.png',
-            color: Colors.white,
-            scale: 3,
+          child: Transform.scale(
+            scale: 0.7,
+            child: SvgPicture.asset(
+              'assets/icons/ic_arrows_left.svg',
+            ),
           ),
           onTap: () => Get.back(),
         ),
@@ -44,7 +45,7 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
           IconButton(
             onPressed: () {
               Get.bottomSheet(
-                BottomSheetDelete(),
+                BottomSheetConfirm(title: 'msg_remove_this_transaction'.tr, message: 'msg_are_you_sure_do'.tr),
               );
             },
             icon: SvgPicture.asset('assets/icons/ic_trash.svg'),
@@ -266,92 +267,6 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class BottomSheetDelete extends StatelessWidget {
-  const BottomSheetDelete({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Container(
-        width: Get.width,
-        decoration: BoxDecoration(
-          color: light100,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Container(
-                width: 50,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: violet40,
-                  borderRadius: BorderRadius.circular(
-                    10,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 40),
-            Text(
-              'msg_remove_this_transaction'.tr,
-              style: TextStyle(
-                color: dark100,
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'msg_are_you_sure_do'.tr,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: dark25,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomButton(
-                  title: 'lbl_no'.tr,
-                  colorBg: violet20,
-                  colorText: violet100,
-                  colorRipple: violet80,
-                  onPressed: () {},
-                  width: 160,
-                ),
-                CustomButton(
-                  title: 'lbl_yes'.tr,
-                  colorBg: violet100,
-                  colorText: violet20,
-                  colorRipple: violet20,
-                  onPressed: () {
-                    showDialogSuccess('msg_transaction_has2'.tr);
-                  },
-                  width: 160,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            )
-          ],
-        ),
       ),
     );
   }

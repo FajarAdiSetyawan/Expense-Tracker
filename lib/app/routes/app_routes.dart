@@ -32,6 +32,9 @@ abstract class Routes {
   static const FINANCIAL_REPORT = _Paths.FINANCIAL_REPORT;
   static const STORY_FINANCIAL_REPORT = _Paths.STORY_FINANCIAL_REPORT;
   static const CREATE_BUDGET = _Paths.CREATE_BUDGET;
+  static const SETTING = _Paths.SETTING;
+  static const EXPORT = _Paths.EXPORT;
+  static const DETAIL_ACCOUNT = _Paths.DETAIL_ACCOUNT;
 }
 
 abstract class _Paths {
@@ -65,4 +68,7 @@ abstract class _Paths {
   static const FINANCIAL_REPORT = '/financial-report';
   static const STORY_FINANCIAL_REPORT = '/story-financial-report';
   static const CREATE_BUDGET = '/create-budget';
+  static const SETTING = '/setting';
+  static const EXPORT = '/export';
+  static const DETAIL_ACCOUNT = '/detail-account';
 }

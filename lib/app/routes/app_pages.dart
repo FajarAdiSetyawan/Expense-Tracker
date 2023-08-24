@@ -16,10 +16,14 @@ import '../modules/budget/bindings/budget_binding.dart';
 import '../modules/budget/views/budget_view.dart';
 import '../modules/create_budget/bindings/create_budget_binding.dart';
 import '../modules/create_budget/views/create_budget_view.dart';
+import '../modules/detail_account/bindings/detail_account_binding.dart';
+import '../modules/detail_account/views/detail_account_view.dart';
 import '../modules/detail_budget/bindings/detail_budget_binding.dart';
 import '../modules/detail_budget/views/detail_budget_view.dart';
 import '../modules/detail_transaction/bindings/detail_transaction_binding.dart';
 import '../modules/detail_transaction/views/detail_transaction_view.dart';
+import '../modules/export/bindings/export_binding.dart';
+import '../modules/export/views/export_view.dart';
 import '../modules/financial_report/bindings/financial_report_binding.dart';
 import '../modules/financial_report/views/financial_report_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
@@ -38,6 +42,8 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/reset_password/bindings/reset_password_binding.dart';
 import '../modules/reset_password/views/reset_password_view.dart';
+import '../modules/setting/bindings/setting_binding.dart';
+import '../modules/setting/views/setting_view.dart';
 import '../modules/setup_account/bindings/setup_account_binding.dart';
 import '../modules/setup_account/views/setup_account_view.dart';
 import '../modules/setup_pin/bindings/setup_pin_binding.dart';
@@ -236,6 +242,21 @@ class AppPages {
       name: _Paths.CREATE_BUDGET,
       page: () => const CreateBudgetView(),
       binding: CreateBudgetBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTING,
+      page: () => const SettingView(),
+      binding: SettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXPORT,
+      page: () => const ExportView(),
+      binding: ExportBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_ACCOUNT,
+      page: () => const DetailAccountView(),
+      binding: DetailAccountBinding(),
     ),
   ];
 }

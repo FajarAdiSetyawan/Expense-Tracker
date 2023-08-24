@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import '../../../data/bank_model.dart';
 import '../../../data/wallet_model.dart';
 
-
 class AddWalletController extends GetxController {
-
   final Rx<Color> _borderColor = Colors.transparent.obs;
 
   Color get borderColor => _borderColor.value;
@@ -48,12 +46,12 @@ class AddWalletController extends GetxController {
   ];
 
   List<Wallet> wallets = [
-    Wallet(id: 101, name: "Wallet X", img: "assets/images/ic_gopay.png"),
-    Wallet(id: 102, name: "Wallet Y", img: "assets/images/ic_ovo.png"),
-    Wallet(id: 103, name: "Wallet Z", img: "assets/images/ic_dana.jpg"),
-    Wallet(id: 104, name: "Wallet Z", img: "assets/images/ic_shopeepay.png"),
-    Wallet(id: 105, name: "Wallet Z", img: "assets/images/ic_linkaja.png"),
-    Wallet(id: 106, name: "Wallet Z", img: "assets/images/ic_doku.jpg"),
+    Wallet(id: 101, name: "Wallet X", balance: 0, img: "assets/images/ic_gopay.png"),
+    Wallet(id: 102, name: "Wallet Y", balance: 0, img: "assets/images/ic_ovo.png"),
+    Wallet(id: 103, name: "Wallet Z", balance: 0, img: "assets/images/ic_dana.jpg"),
+    Wallet(id: 104, name: "Wallet Z", balance: 0, img: "assets/images/ic_shopeepay.png"),
+    Wallet(id: 105, name: "Wallet Z", balance: 0, img: "assets/images/ic_linkaja.png"),
+    Wallet(id: 106, name: "Wallet Z", balance: 0, img: "assets/images/ic_doku.jpg"),
   ];
 
   List<Map<String, dynamic>> nestedMap = [];
@@ -96,4 +94,3 @@ class AddWalletController extends GetxController {
     ];
   }
 }
-
