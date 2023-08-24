@@ -1,16 +1,8 @@
-# expense
+# Expense Tracker
 
-A new Flutter project.
+## Sliceing Design from Figma [By Braja Omar Justico](https://www.figma.com/community/file/998557875473123405/Montra---Expense-Tracker-UI-Kit).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Package Used
+* Uses [GetX Pattern](https://pub.dev/packages/get) for architecture pattern.
+* Uses [Easy Date Timeline](https://pub.dev/packages/easy_date_timeline) for date horizontal scroll.
+* Uses [syncfusion_flutter_charts](https://pub.dev/packages/syncfusion_flutter_charts) for Chart Circular and Line.
