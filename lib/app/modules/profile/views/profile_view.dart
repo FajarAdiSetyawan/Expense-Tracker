@@ -12,8 +12,10 @@ class ProfileView extends GetView<ProfileController> {
   const ProfileView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final colorTheme = Get.isDarkMode ? light100 : dark100;
+
     return Scaffold(
-      backgroundColor: bgSecondary,
+      backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       body: Column(
         children: [
           Padding(
@@ -58,7 +60,6 @@ class ProfileView extends GetView<ProfileController> {
                     Text(
                       'Fajar Adi Setyawan',
                       style: TextStyle(
-                        color: dark100,
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                       ),
@@ -72,6 +73,7 @@ class ProfileView extends GetView<ProfileController> {
                       onPressed: () {},
                       icon: SvgPicture.asset(
                         'assets/icons/ic_pencil.svg',
+                        color: colorTheme,
                       ),
                     ),
                   ),
@@ -83,10 +85,9 @@ class ProfileView extends GetView<ProfileController> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Container(
-              width: Get.width,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: light100,
+                color: Theme.of(context).colorScheme.primaryContainer,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(20),
@@ -175,7 +176,6 @@ class ItemMenuAccount extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: 16,
-            color: dark100,
             fontWeight: FontWeight.w600,
           ),
         ),

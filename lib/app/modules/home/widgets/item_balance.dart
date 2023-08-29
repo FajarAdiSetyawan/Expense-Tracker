@@ -19,7 +19,7 @@ class ItemBalance extends StatelessWidget {
     return Container(
       width: Get.width * 0.4,
       decoration: BoxDecoration(
-        color: isIncome == true ? green100 : red100,
+        color: isIncome == true ? Get.isDarkMode ? greenDark : green100 : Get.isDarkMode ? redDark : red100,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Padding(

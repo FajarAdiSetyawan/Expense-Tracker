@@ -44,8 +44,7 @@ class ItemBudget extends StatelessWidget {
                       const SizedBox(width: 10),
                       Text(
                         budgetModel.category,
-                        style: TextStyle(
-                          color: dark100,
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
@@ -62,8 +61,7 @@ class ItemBudget extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               "${'lbl_remaining'.tr} \$${remaining < 0 ? "0" : remaining.toStringAsFixed(remaining.truncateToDouble() == remaining ? 0 : 1)}",
-              style: TextStyle(
-                color: dark100,
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w800,
               ),
@@ -120,6 +118,4 @@ class ItemBudget extends StatelessWidget {
       ),
     );
   }
-
-
 }

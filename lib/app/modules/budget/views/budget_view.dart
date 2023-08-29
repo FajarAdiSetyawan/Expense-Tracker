@@ -52,10 +52,10 @@ class BudgetView extends GetView<BudgetController> {
             ),
             const SizedBox(height: 30),
             Expanded(
-              child: Container(
-                width: Get.width,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
+              child: Card(
+                margin: EdgeInsets.zero,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(
                       30,
                     ),
@@ -63,7 +63,6 @@ class BudgetView extends GetView<BudgetController> {
                       30,
                     ),
                   ),
-                  color: light100,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

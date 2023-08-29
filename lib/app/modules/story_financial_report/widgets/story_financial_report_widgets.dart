@@ -15,7 +15,7 @@ class StoryItem4 extends StatelessWidget {
     return Container(
       width: Get.width,
       decoration: BoxDecoration(
-        color: violet100,
+        color: blueDark,
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 100, right: 20, left: 20),
@@ -90,7 +90,7 @@ class StoryItem3 extends StatelessWidget {
     return Container(
       width: Get.width,
       decoration: BoxDecoration(
-        color: violet100,
+        color: blueDark,
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 100, right: 20, left: 20),
@@ -122,7 +122,7 @@ class StoryItem3 extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: Colors.white,
+                    color: Get.isDarkMode ? bgSecondaryDark : light100,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
@@ -144,7 +144,7 @@ class StoryItem3 extends StatelessWidget {
                         Text(
                           'lbl_shopping'.tr,
                           style: TextStyle(
-                            color: dark75,
+                            color: Get.isDarkMode ? light100 : dark75,
                             fontFamily: "Inter",
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
@@ -158,7 +158,7 @@ class StoryItem3 extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: Colors.white,
+                    color: Get.isDarkMode ? bgSecondaryDark : light100,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
@@ -180,7 +180,7 @@ class StoryItem3 extends StatelessWidget {
                         Text(
                           'lbl_food'.tr,
                           style: TextStyle(
-                            color: dark75,
+                            color: Get.isDarkMode ? light100 : dark75,
                             fontFamily: "Inter",
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
@@ -275,7 +275,7 @@ class ItemStoryExpenseIncome extends StatelessWidget {
                 child: Container(
                   width: Get.width,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Get.isDarkMode ? bgSecondaryDark : light100,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Padding(
@@ -287,7 +287,7 @@ class ItemStoryExpenseIncome extends StatelessWidget {
                           titleTransaction,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: dark75,
+                            color: Get.isDarkMode ? light100 : dark75,
                             fontFamily: "Inter",
                             fontSize: 20,
                             fontWeight: FontWeight.w800,
@@ -323,7 +323,7 @@ class ItemStoryExpenseIncome extends StatelessWidget {
                                   Text(
                                     transaction,
                                     style: TextStyle(
-                                      color: dark75,
+                                      color: Get.isDarkMode ? light100 : dark75,
                                       fontFamily: "Inter",
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700,
@@ -341,7 +341,7 @@ class ItemStoryExpenseIncome extends StatelessWidget {
                         Text(
                           "\$ $balance2",
                           style: TextStyle(
-                            color: dark75,
+                            color: Get.isDarkMode ? light100 : dark75,
                             fontFamily: "Inter",
                             fontSize: 30,
                             decoration: TextDecoration.none,

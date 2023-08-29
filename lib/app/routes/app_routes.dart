@@ -35,6 +35,7 @@ abstract class Routes {
   static const SETTING = _Paths.SETTING;
   static const EXPORT = _Paths.EXPORT;
   static const DETAIL_ACCOUNT = _Paths.DETAIL_ACCOUNT;
+  static const SETTING_THEME = _Paths.SETTING_THEME;
 }
 
 abstract class _Paths {
@@ -71,4 +72,5 @@ abstract class _Paths {
   static const SETTING = '/setting';
   static const EXPORT = '/export';
   static const DETAIL_ACCOUNT = '/detail-account';
+  static const SETTING_THEME = '/setting-theme';
 }

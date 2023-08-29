@@ -20,15 +20,10 @@ class AddAccountView extends GetView<AddAccountController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: violet100,
+      backgroundColor: Get.isDarkMode ? blueDark : violet100,
       appBar: AppBar(
         title: Text(
           'lbl_add_new_account'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -41,8 +36,8 @@ class AddAccountView extends GetView<AddAccountController> {
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: violet100,
-        backgroundColor: violet100,
+        surfaceTintColor: Get.isDarkMode ? blueDark : violet100,
+        backgroundColor: Get.isDarkMode ? blueDark : violet100,
       ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
@@ -76,12 +71,12 @@ class AddAccountView extends GetView<AddAccountController> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
                     ),
-                    color: Colors.white,
+                    color: Get.isDarkMode ? bgSecondaryDark : light100,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),

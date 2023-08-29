@@ -15,7 +15,7 @@ class AddWalletView extends GetView<AddWalletController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: violet100,
+      backgroundColor: Get.isDarkMode ? blueDark : violet100,
       appBar: AppBar(
         title: Text(
           'lbl_add_new_wallet'.tr,
@@ -35,8 +35,8 @@ class AddWalletView extends GetView<AddWalletController> {
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: violet100,
-        backgroundColor: violet100,
+        surfaceTintColor: Get.isDarkMode ? blueDark : violet100,
+        backgroundColor: Get.isDarkMode ? blueDark : violet100,
       ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
@@ -70,12 +70,12 @@ class AddWalletView extends GetView<AddWalletController> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
                     ),
-                    color: Colors.white,
+                    color: Get.isDarkMode ? bgSecondaryDark : light100,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -123,8 +123,7 @@ class AddWalletView extends GetView<AddWalletController> {
                                 color: Colors.grey[500],
                                 size: 40,
                               ),
-                              style: TextStyle(
-                                color: Colors.grey[700],
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontFamily: "Inter",
                                 fontSize: 16,
@@ -144,8 +143,7 @@ class AddWalletView extends GetView<AddWalletController> {
                           ),
                           Text(
                             'lbl_bank'.tr,
-                            style: TextStyle(
-                              color: dark100,
+                            style: const TextStyle(
                               fontFamily: "Inter",
                               fontWeight: FontWeight.bold,
                               fontSize: 16,

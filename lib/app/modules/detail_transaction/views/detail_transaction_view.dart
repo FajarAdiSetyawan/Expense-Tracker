@@ -21,7 +21,6 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
     String formattedDate = DateFormat('EEEE d MMMM y HH:mm').format(parsedDateTime);
 
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'msg_detail_transaction'.tr,
@@ -52,15 +51,27 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
           ),
         ],
         surfaceTintColor: transaction.transactionStatus == TransactionStatus.expense
-            ? red100
+            ? Get.isDarkMode
+                ? redDark
+                : red100
             : transaction.transactionStatus == TransactionStatus.income
-                ? green100
-                : blue100,
+                ? Get.isDarkMode
+                    ? greenDark
+                    : green100
+                : Get.isDarkMode
+                    ? blueDark
+                    : blue100,
         backgroundColor: transaction.transactionStatus == TransactionStatus.expense
-            ? red100
+            ? Get.isDarkMode
+                ? redDark
+                : red100
             : transaction.transactionStatus == TransactionStatus.income
-                ? green100
-                : blue100,
+                ? Get.isDarkMode
+                    ? greenDark
+                    : green100
+                : Get.isDarkMode
+                    ? blueDark
+                    : blue100,
       ),
       body: Column(
         children: [
@@ -70,10 +81,16 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
               Container(
                 decoration: BoxDecoration(
                   color: transaction.transactionStatus == TransactionStatus.expense
-                      ? red100
+                      ? Get.isDarkMode
+                          ? redDark
+                          : red100
                       : transaction.transactionStatus == TransactionStatus.income
-                          ? green100
-                          : blue100,
+                          ? Get.isDarkMode
+                              ? greenDark
+                              : green100
+                          : Get.isDarkMode
+                              ? blueDark
+                              : blue100,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
@@ -122,7 +139,6 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Card(
-                    color: light100,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20, bottom: 20, left: 16, right: 16),
                       child: Row(
@@ -140,7 +156,6 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
                               Text(
                                 capitalize(transaction.transactionStatus.name),
                                 style: TextStyle(
-                                  color: dark100,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
                                 ),
@@ -159,7 +174,6 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
                               Text(
                                 capitalize(transaction.title),
                                 style: TextStyle(
-                                  color: dark100,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
                                 ),
@@ -178,7 +192,6 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
                               Text(
                                 capitalize(transaction.walletStatus.name),
                                 style: TextStyle(
-                                  color: dark100,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
                                 ),
@@ -225,7 +238,6 @@ class DetailTransactionView extends GetView<DetailTransactionController> {
                     transaction.description,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      color: dark100,
                       fontSize: 16,
                       fontWeight: FontWeight.w300,
                     ),

@@ -14,15 +14,9 @@ class AccountView extends GetView<AccountController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'lbl_account'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -30,13 +24,11 @@ class AccountView extends GetView<AccountController> {
             scale: 0.7,
             child: SvgPicture.asset(
               'assets/icons/ic_arrows_left.svg',
-              color: dark100,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: Column(
         children: [
@@ -64,10 +56,9 @@ class AccountView extends GetView<AccountController> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
+                    const Text(
                       '\$9000',
                       style: TextStyle(
-                        color: dark100,
                         fontSize: 40,
                         fontWeight: FontWeight.w800,
                       ),
@@ -105,5 +96,3 @@ class AccountView extends GetView<AccountController> {
     );
   }
 }
-
-

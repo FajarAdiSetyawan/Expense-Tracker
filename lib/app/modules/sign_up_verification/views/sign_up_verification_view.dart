@@ -9,7 +9,6 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
-
 class SignUpVerificationView extends StatefulWidget {
   const SignUpVerificationView({Key? key}) : super(key: key);
 
@@ -59,14 +58,9 @@ class _SignUpVerificationViewState extends State<SignUpVerificationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'lbl_verification'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -78,8 +72,6 @@ class _SignUpVerificationViewState extends State<SignUpVerificationView> {
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -91,8 +83,7 @@ class _SignUpVerificationViewState extends State<SignUpVerificationView> {
               children: [
                 Text(
                   'msg_enter_your_verification'.tr,
-                  style: TextStyle(
-                    color: dark100,
+                  style: const TextStyle(
                     fontFamily: "Inter",
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -140,8 +131,7 @@ class _SignUpVerificationViewState extends State<SignUpVerificationView> {
                     children: [
                       TextSpan(
                         text: "msg_we_send_verification2".tr,
-                        style: TextStyle(
-                          color: dark100,
+                        style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Inter',
                           fontSize: 16,
@@ -158,8 +148,7 @@ class _SignUpVerificationViewState extends State<SignUpVerificationView> {
                       ),
                       TextSpan(
                         text: "msg_you_can_check".tr,
-                        style: TextStyle(
-                          color: dark100,
+                        style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Inter',
                           fontSize: 16,

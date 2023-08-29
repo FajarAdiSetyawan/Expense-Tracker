@@ -28,9 +28,9 @@ class HomeView extends GetView<HomeController> {
     }
 
     final List<Color> color = <Color>[];
-    color.add(violet10);
-    color.add(violet40);
-    color.add(violet100);
+    color.add(Get.isDarkMode ? Colors.transparent : violet10);
+    color.add(Get.isDarkMode ? Colors.black45 : violet40);
+    color.add(Get.isDarkMode ? Colors.black : violet100);
 
     final List<double> stops = <double>[];
     stops.add(0.0);
@@ -51,8 +51,8 @@ class HomeView extends GetView<HomeController> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  yellow20,
-                  violet20,
+                  Theme.of(context).colorScheme.onPrimary,
+                  Theme.of(context).colorScheme.onSecondary,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -103,10 +103,9 @@ class HomeView extends GetView<HomeController> {
                               'assets/icons/ic_arrow_down.svg',
                             ),
                           ),
-                          Text(
+                          const Text(
                             "October",
                             style: TextStyle(
-                              color: dark100,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -127,7 +126,8 @@ class HomeView extends GetView<HomeController> {
                 Text(
                   'lbl_account_balance'.tr,
                   style: TextStyle(
-                    color: dark25,
+                    color: Get.isDarkMode ? bgPrimary : dark25,
+                    fontFamily: "Inter",
                     fontSize: 16,
                   ),
                 ),
@@ -163,8 +163,7 @@ class HomeView extends GetView<HomeController> {
                         ),
                         child: Text(
                           'lbl_spend_frequency'.tr,
-                          style: TextStyle(
-                            color: dark100,
+                          style: const TextStyle(
                             fontFamily: "Inter",
                             fontWeight: FontWeight.w600,
                           ),
@@ -243,8 +242,7 @@ class HomeView extends GetView<HomeController> {
                           children: [
                             Text(
                               'msg_recent_transaction'.tr,
-                              style: TextStyle(
-                                color: dark100,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontFamily: "Inter",
                                 fontSize: 15,

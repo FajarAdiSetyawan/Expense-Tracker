@@ -36,7 +36,6 @@ class ItemFinancialTransaction extends StatelessWidget {
                         Text(
                           transaction.title,
                           style: TextStyle(
-                            color: dark75,
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                           ),
@@ -60,7 +59,6 @@ class ItemFinancialTransaction extends StatelessWidget {
                             child: Text(
                               transaction.message,
                               style: TextStyle(
-                                color: dark50,
                                 fontSize: 14,
                               ),
                               maxLines: 1, // Memastikan hanya satu baris
@@ -72,7 +70,6 @@ class ItemFinancialTransaction extends StatelessWidget {
                         Text(
                           DateFormat.jm().format(DateTime.parse(transaction.dateTime)),
                           style: TextStyle(
-                            color: dark50,
                             fontSize: 14,
                           ),
                         ),
@@ -138,7 +135,7 @@ class SfCartesianChartCustom extends StatelessWidget {
               yValueMapper: (ChartData sales, _) => sales.y,
               gradient: gradientColors,
               borderWidth: 5,
-              borderColor: violet100,
+              borderColor: Get.isDarkMode ? dark10 : violet100,
             ),
           ],
         ),

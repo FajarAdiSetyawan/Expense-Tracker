@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 Color get bgPrimary => Color(0XFFE5E5E5);
+Color get bgPrimaryDark => Color(0XFF041C32);
 Color get bgSecondary => Color(0XFFF6F6F6);
+Color get bgSecondaryDark => Color.fromARGB(255, 7, 45, 82);
 
 // dark
 Color get dark10 => Color(0XFFC6C6C6);
@@ -32,6 +34,7 @@ Color get red40 => Color(0XFFFDA2A9);
 Color get red60 => Color(0XFFFD6F7A);
 Color get red80 => Color(0XFFFD5662);
 Color get red100 => Color(0XFFFD3C4A);
+Color get redDark => Color(0xFFB32C35);
 
 // green
 Color get green20 => Color(0XFFCFFAEA);
@@ -39,6 +42,7 @@ Color get green40 => Color(0XFF93EACA);
 Color get green60 => Color(0XFF65D1AA);
 Color get green80 => Color(0XFF2AB784);
 Color get green100 => Color(0XFF00A86B);
+Color get greenDark => Color(0xFF006641);
 
 // yellow
 Color get yellow20 => Color(0XFFFCEED4);
@@ -53,3 +57,4 @@ Color get blue40 => Color(0XFF8AC0FF);
 Color get blue60 => Color(0XFF57A5FF);
 Color get blue80 => Color(0XFF248AFF);
 Color get blue100 => Color(0XFF0077FF);
+Color get blueDark => Color(0xFF004696);

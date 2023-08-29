@@ -93,7 +93,6 @@ Widget buildTransactionList(String label, List<Transaction> transactions) {
   );
 }
 
-
 class BottomSheetFilterTransaction extends StatelessWidget {
   const BottomSheetFilterTransaction({super.key, required this.controller});
 
@@ -103,9 +102,9 @@ class BottomSheetFilterTransaction extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         ),
@@ -263,6 +262,10 @@ class BottomSheetFilterTransaction extends StatelessWidget {
       groupRunAlignment: GroupRunAlignment.start,
       groupingType: groupingType,
       selectedColor: violet40,
+      unselectedTextStyle: TextStyle(
+        color: Get.isDarkMode ? light100 : dark100,
+        fontWeight: FontWeight.w500,
+      ),
       selectedTextStyle: TextStyle(
         color: violet100,
         fontWeight: FontWeight.w500,

@@ -30,7 +30,7 @@ class _StoryFinancialReportView extends State<StoryFinancialReportView> {
             svgAssets: 'assets/icons/ic_salary.svg',
             balance1: 332,
             balance2: 120,
-            bgColor: red100,
+            bgColor: Get.isDarkMode ? redDark : red100,
           ),
           duration: const Duration(
             seconds: 5,
@@ -44,7 +44,7 @@ class _StoryFinancialReportView extends State<StoryFinancialReportView> {
             svgAssets: 'assets/icons/ic_salary.svg',
             balance1: 6000,
             balance2: 5000,
-            bgColor: green100,
+            bgColor: Get.isDarkMode ? greenDark : green100,
           ),
           duration: const Duration(
             seconds: 5,

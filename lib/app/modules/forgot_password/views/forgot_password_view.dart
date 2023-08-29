@@ -14,14 +14,9 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'lbl_forgot_password'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -33,8 +28,6 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -46,7 +39,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
           children: [
             Text(
               'msg_don_t_worry_enter'.tr,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 23,
                 fontFamily: "Inter",
                 fontWeight: FontWeight.bold,

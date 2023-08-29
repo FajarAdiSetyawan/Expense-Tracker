@@ -15,14 +15,9 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'msg_login'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -34,8 +29,6 @@ class LoginView extends GetView<LoginController> {
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -87,8 +80,7 @@ class LoginView extends GetView<LoginController> {
                   children: [
                     TextSpan(
                       text: "msg_don_t_have_an_account".tr,
-                      style: TextStyle(
-                        color: dark75,
+                      style: const TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 15,
                       ),

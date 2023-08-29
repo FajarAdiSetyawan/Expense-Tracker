@@ -12,9 +12,9 @@ class FinancialReportView extends GetView<FinancialReportController> {
   @override
   Widget build(BuildContext context) {
     final List<Color> color = <Color>[];
-    color.add(Colors.white);
-    color.add(violet40);
-    color.add(violet60);
+    color.add(Get.isDarkMode ? Colors.transparent : violet10);
+    color.add(Get.isDarkMode ? Colors.black45 : violet40);
+    color.add(Get.isDarkMode ? Colors.black : violet100);
 
     final List<double> stops = <double>[];
     stops.add(0.0);
@@ -32,15 +32,9 @@ class FinancialReportView extends GetView<FinancialReportController> {
     List<Transaction> expenseTransactions = transactions.where((transaction) => transaction.transactionStatus == TransactionStatus.expense).toList();
 
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'msg_financial_report'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -52,8 +46,6 @@ class FinancialReportView extends GetView<FinancialReportController> {
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: Column(
         children: [

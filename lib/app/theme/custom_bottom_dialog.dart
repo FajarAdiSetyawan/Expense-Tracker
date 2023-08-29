@@ -102,13 +102,9 @@ class BottomSheetConfirm extends StatelessWidget {
   Widget build(BuildContext context) {
     return IntrinsicHeight(
       child: Container(
-        width: Get.width,
         decoration: BoxDecoration(
-          color: light100,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
+          borderRadius: BorderRadius.circular(20),
+          color: Theme.of(context).colorScheme.primaryContainer,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -128,10 +124,8 @@ class BottomSheetConfirm extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             Text(
-              // 'msg_remove_this_transaction'.tr,
               title,
-              style: TextStyle(
-                color: dark100,
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),

@@ -12,7 +12,6 @@ class IntroductionScreenView extends GetView<IntroductionScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light100,
       body: Stack(
         children: [
           PageView(

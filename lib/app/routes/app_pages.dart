@@ -44,6 +44,8 @@ import '../modules/reset_password/bindings/reset_password_binding.dart';
 import '../modules/reset_password/views/reset_password_view.dart';
 import '../modules/setting/bindings/setting_binding.dart';
 import '../modules/setting/views/setting_view.dart';
+import '../modules/setting_theme/bindings/setting_theme_binding.dart';
+import '../modules/setting_theme/views/setting_theme_view.dart';
 import '../modules/setup_account/bindings/setup_account_binding.dart';
 import '../modules/setup_account/views/setup_account_view.dart';
 import '../modules/setup_pin/bindings/setup_pin_binding.dart';
@@ -70,7 +72,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.MAIN;
+  static const INITIAL = Routes.SPLASH_SCREEN;
 
   static final routes = [
     GetPage(
@@ -257,6 +259,11 @@ class AppPages {
       name: _Paths.DETAIL_ACCOUNT,
       page: () => const DetailAccountView(),
       binding: DetailAccountBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTING_THEME,
+      page: () => SettingThemeView(),
+      binding: SettingThemeBinding(),
     ),
   ];
 }

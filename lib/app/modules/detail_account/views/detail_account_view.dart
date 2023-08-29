@@ -17,15 +17,9 @@ class DetailAccountView extends GetView<DetailAccountController> {
     Wallet wallet = Get.arguments;
 
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'lbl_account'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -33,7 +27,7 @@ class DetailAccountView extends GetView<DetailAccountController> {
             scale: 0.7,
             child: SvgPicture.asset(
               'assets/icons/ic_arrows_left.svg',
-              color: dark100,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
           onTap: () => Get.back(),
@@ -41,11 +35,12 @@ class DetailAccountView extends GetView<DetailAccountController> {
         actions: [
           IconButton(
             onPressed: () => Get.toNamed(Routes.ADD_WALLET),
-            icon: SvgPicture.asset('assets/icons/ic_pencil.svg'),
+            icon: SvgPicture.asset(
+              'assets/icons/ic_pencil.svg',
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
           ),
         ],
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,8 +65,7 @@ class DetailAccountView extends GetView<DetailAccountController> {
                 const SizedBox(height: 10),
                 Text(
                   wallet.name,
-                  style: TextStyle(
-                    color: dark100,
+                  style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 20,
                   ),
@@ -79,8 +73,7 @@ class DetailAccountView extends GetView<DetailAccountController> {
                 const SizedBox(height: 10),
                 Text(
                   '\$${wallet.balance.floor().toString()}',
-                  style: TextStyle(
-                    color: dark100,
+                  style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 30,
                   ),
@@ -92,8 +85,7 @@ class DetailAccountView extends GetView<DetailAccountController> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               'lbl_today'.tr,
-              style: TextStyle(
-                color: dark100,
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
               ),

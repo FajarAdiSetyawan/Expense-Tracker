@@ -15,18 +15,14 @@ class DetailBudgetView extends GetView<DetailBudgetController> {
   const DetailBudgetView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final iconColor = Get.isDarkMode ? light100 : dark100;
+
     BudgetModel budgetModel = Get.arguments;
     var remaining = budgetModel.budget - budgetModel.expense;
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'lbl_detail_budget'.tr,
-          style: TextStyle(
-            fontFamily: 'Intel',
-            color: dark100,
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -34,7 +30,7 @@ class DetailBudgetView extends GetView<DetailBudgetController> {
             scale: 0.7,
             child: SvgPicture.asset(
               'assets/icons/ic_arrows_left.svg',
-              color: dark100,
+              color: iconColor,
             ),
           ),
           onTap: () => Get.back(),
@@ -48,12 +44,10 @@ class DetailBudgetView extends GetView<DetailBudgetController> {
             },
             icon: SvgPicture.asset(
               'assets/icons/ic_trash.svg',
-              color: dark100,
+              color: iconColor,
             ),
           ),
         ],
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,7 +81,6 @@ class DetailBudgetView extends GetView<DetailBudgetController> {
                       Text(
                         budgetModel.category,
                         style: TextStyle(
-                          color: dark100,
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                         ),
@@ -102,7 +95,6 @@ class DetailBudgetView extends GetView<DetailBudgetController> {
           Text(
             'lbl_remaining'.tr,
             style: TextStyle(
-              color: dark100,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -110,7 +102,6 @@ class DetailBudgetView extends GetView<DetailBudgetController> {
           Text(
             '\$${remaining < 0 ? "0" : remaining.toStringAsFixed(remaining.truncateToDouble() == remaining ? 0 : 1)}',
             style: TextStyle(
-              color: dark100,
               fontSize: 45,
               fontWeight: FontWeight.bold,
             ),

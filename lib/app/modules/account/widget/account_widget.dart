@@ -34,8 +34,7 @@ class ItemWalletBalance extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               wallet.name,
-              style: TextStyle(
-                color: dark100,
+              style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
               ),
@@ -45,8 +44,7 @@ class ItemWalletBalance extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: Text(
                   '\$${wallet.balance.floor().toString()}',
-                  style: TextStyle(
-                    color: dark100,
+                  style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 18,
                   ),

@@ -15,9 +15,7 @@ import 'package:get/get.dart';
 import '../controllers/main_controller.dart';
 
 class MainView extends GetView<MainController> {
-  MainView({Key? key}) : super(key: key);
-
-
+  const MainView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +25,18 @@ class MainView extends GetView<MainController> {
           return IndexedStack(
             index: controller.bottomNavIndex,
             children: [
-              HomeView(),
-              TransactionView(),
+              const HomeView(),
+              const TransactionView(),
               Container(),
-              BudgetView(),
-              ProfileView(),
+              const BudgetView(),
+              const ProfileView(),
             ],
           );
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ExpandableFab(
+
         color: violet100,
         icon: const Icon(
           Icons.add_rounded,
@@ -47,6 +46,7 @@ class MainView extends GetView<MainController> {
         fabMargin: 20,
         children: [
           ActionButton(
+
             icon: SvgPicture.asset(
               'assets/icons/ic_income.svg',
               color: light100,

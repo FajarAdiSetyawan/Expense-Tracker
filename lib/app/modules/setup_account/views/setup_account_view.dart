@@ -12,7 +12,6 @@ class SetupAccountView extends GetView<SetupAccountController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light100,
       body: Padding(
         padding: const EdgeInsets.only(top: 140.0, left: 20, right: 20),
         child: Column(

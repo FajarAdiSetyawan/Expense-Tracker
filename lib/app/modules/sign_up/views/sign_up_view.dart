@@ -16,14 +16,9 @@ class SignUpView extends GetView<SignUpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: light100,
       appBar: AppBar(
         title: Text(
           'lbl_sign_up'.tr,
-          style: const TextStyle(
-            fontFamily: 'Intel',
-            fontWeight: FontWeight.bold,
-          ),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -35,8 +30,6 @@ class SignUpView extends GetView<SignUpController> {
           ),
           onTap: () => Get.back(),
         ),
-        surfaceTintColor: light100,
-        backgroundColor: light100,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -87,8 +80,7 @@ class SignUpView extends GetView<SignUpController> {
                       children: [
                         TextSpan(
                           text: "msg_by_signing_up_you".tr,
-                          style: TextStyle(
-                            color: dark75,
+                          style: const TextStyle(
                             fontFamily: 'Inter',
                             fontSize: 15,
                           ),
@@ -150,8 +142,7 @@ class SignUpView extends GetView<SignUpController> {
                   children: [
                     TextSpan(
                       text: "msg_already_have_an".tr,
-                      style: TextStyle(
-                        color: dark75,
+                      style: const TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 15,
                       ),

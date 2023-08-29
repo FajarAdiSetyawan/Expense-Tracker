@@ -30,7 +30,6 @@ class FillterDropDown extends StatelessWidget {
           iconSize: 0,
           style: const TextStyle(
             fontSize: 14,
-            color: Colors.black,
             fontWeight: FontWeight.w500,
           ),
           icon: Image.asset('assets/images/transparent.png', width: 0, height: 0),
@@ -224,7 +223,10 @@ class TabLineTab extends StatelessWidget {
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: SvgPicture.asset('assets/icons/ic_sort_filter.svg'),
+                            icon: SvgPicture.asset(
+                              'assets/icons/ic_sort_filter.svg',
+                              color: Theme.of(context).colorScheme.inversePrimary,
+                            ),
                             style: ButtonStyle(
                               shape: MaterialStatePropertyAll(
                                 RoundedRectangleBorder(
@@ -461,7 +463,10 @@ class TabCircularTab extends StatelessWidget {
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: SvgPicture.asset('assets/icons/ic_sort_filter.svg'),
+                            icon: SvgPicture.asset(
+                              'assets/icons/ic_sort_filter.svg',
+                              color: Theme.of(context).colorScheme.inversePrimary,
+                            ),
                             style: ButtonStyle(
                               shape: MaterialStatePropertyAll(
                                 RoundedRectangleBorder(

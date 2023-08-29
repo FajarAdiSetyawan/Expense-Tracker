@@ -1,23 +1,28 @@
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingController extends GetxController {
-  //TODO: Implement SettingController
+  RxInt selectedTheme = 1.obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    loadSavedTheme();
   }
 
   @override
   void onReady() {
     super.onReady();
+    loadSavedTheme();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  void loadSavedTheme() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int savedTheme = prefs.getInt('selectedTheme') ?? 1;
+    selectedTheme.value = savedTheme;
+
+    update();
   }
 
-  void increment() => count.value++;
+
 }

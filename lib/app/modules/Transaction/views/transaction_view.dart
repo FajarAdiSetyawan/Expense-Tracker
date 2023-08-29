@@ -156,7 +156,10 @@ class ItemFilterTransaction extends StatelessWidget {
                   color: violet100,
                 ),
                 label: Obx(() => Text("${controller.totalFilter}")),
-                child: SvgPicture.asset('assets/icons/ic_sort.svg'),
+                child: SvgPicture.asset(
+                  'assets/icons/ic_sort.svg',
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
               ),
             ),
           ],

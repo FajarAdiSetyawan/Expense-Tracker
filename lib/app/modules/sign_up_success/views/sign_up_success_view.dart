@@ -18,7 +18,6 @@ class SignUpSuccessView extends GetView<SignUpSuccessController> {
       },
     );
     return Scaffold(
-      backgroundColor: light100,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
